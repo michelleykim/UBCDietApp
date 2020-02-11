@@ -22,7 +22,7 @@ public class DailyPlan {
 
     // MODIFIES: this
     // EFFECTS: generate a recommended daily plan based on user desired calories and budget
-    public void generateMealPlan() {
+    public void generateMealPlan(int totalCalories, double totalCost) {
         // stub
     }
 
