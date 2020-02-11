@@ -37,6 +37,4 @@ so more students like myself can achieve healthier lifestyle.
 - As a user, I want to be able to delete a menu from a daily meal plan
 - As a user, I want to be able to view the list of menus in a daily meal plan
 - As a user, I want to be able to view the total calories and the cost of the daily meal plan
-- As a user, I want to be able to select a menu in my meal plan and view the detailed nutrition information of a menu
-- As a user, I want to be able to select a menu and exclude it from all future meal plans 
 - As a user, I want to be able to select a dietary restriction that exclude menus accordingly
