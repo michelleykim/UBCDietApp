@@ -1,6 +1,7 @@
 package model;
 
 import java.util.ArrayList;
+import java.util.Iterator;
 
 public class DailyPlan {
     ArrayList<Menu> dailyPlan;
@@ -10,39 +11,39 @@ public class DailyPlan {
 
     // EFFECTS: constructs an empty daily plan
     public DailyPlan() {
-        dailyPlan = new ArrayList<Menu>();
+        dailyPlan = new ArrayList<>();
+        allMenus = allMenus();
     }
 
-    public int getTotalCalories() {
-        for (Menu menu : dailyPlan) {
-            totalCalories = totalCalories + menu.getCalories();
-        }
-        return totalCalories;
-    }
+    // EFFECTS: constructs a list of all the menus
+    public ArrayList<Menu> allMenus() {
+        allMenus = new ArrayList<>();
+        Menu milk = new Menu("milk", 200, 2.25, true);
+        Menu oreo = new Menu("oreo", 800, 3.00, true);
+        Menu steak = new Menu("steak", 1100, 33.00, false);
+        Menu wrap = new Menu("wrap", 880, 7.75, false);
 
-    public double getTotalCost() {
-        for (Menu menu : dailyPlan) {
-            totalCost = totalCost + menu.getCost();
-        }
-        return totalCost;
+        allMenus.add(milk);
+        allMenus.add(oreo);
+        allMenus.add(steak);
+        allMenus.add(wrap);
+
+        return allMenus;
     }
 
     // MODIFIES: this
     // EFFECTS: generate a recommended daily plan based on user desired calories and budget
     public void generateMealPlan(int totalCalories, double totalBudget, boolean vegetarian) {
-        int caloriesPerMeal = totalCalories / 3;
-        double budgetPerMeal = totalBudget / 3;
 
-        if (vegetarian == true) {
-            for (Menu menu : allMenus) {
-                if (!menu.getVegetarian()) {
-                    allMenus.remove(menu);
-                }
-            }
-            for (Menu menu : allMenus) {
-                if (menu.getCalories() <= caloriesPerMeal && menu.getCost() <= budgetPerMeal) {
-                    dailyPlan.add(menu);
-                }
+        if (vegetarian) {
+            allMenus.removeIf(menu -> !menu.getVegetarian());
+        }
+
+        for (Menu menu : allMenus) {
+            if (menu.getCalories() <= totalCalories && menu.getCost() <= totalBudget) {
+                dailyPlan.add(menu);
+                totalCalories = totalCalories - menu.getCalories();
+                totalBudget = totalBudget - menu.getCost();
             }
         }
 
@@ -59,7 +60,7 @@ public class DailyPlan {
     // EFFECTS: deletes a menu from daily plan
     public void deleteMenu(String menuName) {
         for (Menu menu : dailyPlan) {
-            if (menu.getName() == menuName) {
+            if (menu.getName().equals(menuName)) {
                 dailyPlan.remove(menu);
                 return;
             }
@@ -68,13 +69,27 @@ public class DailyPlan {
 
     // EFFECTS: returns a string representation of daily plan
     public String toString() {
-        String dailyPlanString = "";
+        StringBuilder dailyPlanString = new StringBuilder();
 
         for (Menu menu : dailyPlan) {
-            dailyPlanString = dailyPlanString + "\n" + menu.getName();
+            dailyPlanString.append("\n").append(menu.getName());
         }
 
-        return dailyPlanString;
+        return dailyPlanString.toString();
+    }
+
+    public int getTotalCalories() {
+        for (Menu menu : dailyPlan) {
+            totalCalories = totalCalories + menu.getCalories();
+        }
+        return totalCalories;
+    }
+
+    public double getTotalCost() {
+        for (Menu menu : dailyPlan) {
+            totalCost = totalCost + menu.getCost();
+        }
+        return totalCost;
     }
 
 }

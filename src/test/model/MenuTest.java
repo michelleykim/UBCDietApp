@@ -15,4 +15,5 @@ public class MenuTest {
         assertEquals(milk.getCost(), 2.25);
         assertTrue(milk.getVegetarian());
     }
+
 }

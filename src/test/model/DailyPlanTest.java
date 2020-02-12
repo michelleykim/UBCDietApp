@@ -9,19 +9,11 @@ import static org.junit.jupiter.api.Assertions.*;
 
 public class DailyPlanTest {
     DailyPlan plan;
-    Menu milk = new Menu("milk", 200, 2.25, true);
-    Menu oreo = new Menu("oreo", 800, 3.00, true);
-    Menu steak = new Menu("steak", 1100, 33.00, false);
-    Menu wrap = new Menu("wrap", 880, 7.75, false);
 
     @BeforeEach
     void runBefore() {
         plan = new DailyPlan();
-        ArrayList<Menu> allMenus = new ArrayList<Menu>();
-        allMenus.add(0, milk);
-        allMenus.add(1, oreo);
-        allMenus.add(2, steak);
-        allMenus.add(3, wrap);
+
     }
 
     @Test
@@ -44,5 +36,47 @@ public class DailyPlanTest {
         plan.addMenu("grape", 100, 3.99, true);
         assertEquals(plan.getTotalCalories(), 120+160+100);
         assertEquals(plan.getTotalCost(), 1.75+1.25+3.99);
+    }
+
+    @Test
+    void testDeleteOneMenu() {
+        plan.addMenu("apple", 120, 1.75, true);
+        plan.addMenu("banana", 160, 1.25, true);
+        plan.addMenu("grape", 100, 3.99, true);
+        plan.deleteMenu("apple");
+        assertEquals(plan.getTotalCalories(), 160+100);
+        assertEquals(plan.getTotalCost(), 1.25+3.99);
+    }
+
+    @Test
+    void testDeleteMultipleMenu() {
+        plan.addMenu("apple", 120, 1.75, true);
+        plan.addMenu("banana", 160, 1.25, true);
+        plan.addMenu("grape", 100, 3.99, true);
+        plan.deleteMenu("apple");
+        plan.deleteMenu("banana");
+        assertEquals(plan.getTotalCalories(), 100);
+        assertEquals(plan.getTotalCost(), 3.99);
+    }
+
+    @Test
+    void testGenerateMealPlanNoRestriction() {
+        plan.generateMealPlan(1200, 10.00, false);
+        assertEquals(plan.getTotalCalories(), 1000);
+        assertEquals(plan.getTotalCost(), 5.25);
+    }
+
+    @Test
+    void testGenerateMealPlanRestriction() {
+        plan.generateMealPlan(2200, 50.00, true);
+        assertEquals(plan.getTotalCalories(), 1000);
+        assertEquals(plan.getTotalCost(), 5.25);
+    }
+
+    @Test
+    void testGenerateMealPlanNoRestriction2() {
+        plan.generateMealPlan(2200, 50.00, false);
+        assertEquals(plan.getTotalCalories(), 2100);
+        assertEquals(plan.getTotalCost(), 38.25);
     }
 }
