@@ -75,25 +75,26 @@ public class HealthyDietApp {
             String command = scanner.nextLine();
             System.out.println("You selected: " + command);
 
-            switch (command) {
-                case "add menu":
-                    customizedPlan = addMenu();
-                    System.out.println("The menu is added to the meal plan");
-                    System.out.println("Current meal plan: " + mealPlan.toString());
+            if (command.equals("done")) {
+                System.out.println("Done customizing meal plan!");
+                break;
+            }
 
-                case "delete menu":
-                    System.out.println("Which menu would you like to delete?");
-                    String menuName = scanner.nextLine();
+            if (command.equals("add menu")) {
+                customizedPlan = addMenu();
+                System.out.println("The menu is added to the meal plan");
+                System.out.println("Current meal plan: " + customizedPlan + customizedPlan.toString());
 
-                    customizedPlan.deleteMenu(menuName);
-                    System.out.println("The menu is deleted from the meal plan");
-                    System.out.println("Current meal plan: " + mealPlan.toString());
+            } else if (command.equals("delete menu")) {
+                System.out.println("Which menu would you like to delete?");
+                String menuName = scanner.nextLine();
 
-                case "done":
-                    System.out.println("Done customizing meal plan!");
-                    break;
+                customizedPlan.deleteMenu(menuName);
+                System.out.println("The menu is deleted from the meal plan");
+                System.out.println("Current meal plan: " + customizedPlan.toString());
             }
         }
+        return customizedPlan;
     }
 
     private DailyPlan addMenu() {
