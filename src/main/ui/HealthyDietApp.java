@@ -1,7 +1,6 @@
 package ui;
 
 import model.DailyPlan;
-import model.Menu;
 
 import java.util.Scanner;
 
@@ -20,27 +19,24 @@ public class HealthyDietApp {
     private void runHealthyDietApp() {
         String command;
 
-        label:
-        while (true) {
-            System.out.println("Please select an option (generate or make own or quit):");
-            command = scanner.nextLine();
-            System.out.println("You selected: " + command);
+        System.out.println("Please select an option (generate or make own or quit):");
+        command = scanner.nextLine();
+        System.out.println("You selected: " + command);
 
-            switch (command) {
-                case "quit":
-                    System.out.println("Good bye!");
-                    break label;
-                case "generate":
-                    mealPlan = processCommand(command);
-                    System.out.println("Your recommended meal plan is:\n" + mealPlan.toString());
-                    break;
-                case "make own":
-                    mealPlan = processCommand(command);
-                    System.out.println("Your meal plan is: " + mealPlan.toString());
-                    System.out.println("Total calories is: " + mealPlan.getTotalCalories());
-                    System.out.println("Total price is: " + mealPlan.getTotalCost());
-                    break;
-            }
+        switch (command) {
+            case "quit":
+                System.out.println("Good bye!");
+                break;
+            case "generate":
+                mealPlan = processCommand(command);
+                System.out.println("Your recommended meal plan is:\n" + mealPlan.toString());
+                break;
+            case "make own":
+                mealPlan = processCommand(command);
+                System.out.println("Your meal plan is: " + mealPlan.toString());
+                System.out.println("Total calories is: " + mealPlan.getTotalCalories());
+                System.out.println("Total price is: " + mealPlan.getTotalCost());
+                break;
         }
     }
 
@@ -58,6 +54,8 @@ public class HealthyDietApp {
     }
 
     private DailyPlan generate() {
+        DailyPlan generatedPlan = new DailyPlan();
+
         System.out.println("Please enter desired daily calories intake: ");
         int calories = scanner.nextInt();
         System.out.println("Please enter desired daily budget: ");
@@ -65,11 +63,13 @@ public class HealthyDietApp {
         System.out.println("Are you vegetarian? (true or false)");
         boolean vegetarian = scanner.nextBoolean();
 
-        mealPlan.generateMealPlan(calories, budget, vegetarian);
-        return mealPlan;
+        generatedPlan.generateMealPlan(calories, budget, vegetarian);
+        return generatedPlan;
     }
 
     private DailyPlan makeOwn() {
+        DailyPlan customizedPlan = new DailyPlan();
+
         while (true) {
             System.out.println("Please select an option (add menu or delete menu or done):");
             String command = scanner.nextLine();
@@ -77,38 +77,42 @@ public class HealthyDietApp {
 
             switch (command) {
                 case "add menu":
-                    mealPlan = addMenu();
+                    customizedPlan = addMenu();
                     System.out.println("The menu is added to the meal plan");
+                    System.out.println("Current meal plan: " + mealPlan.toString());
 
-                    break;
                 case "delete menu":
                     System.out.println("Which menu would you like to delete?");
                     String menuName = scanner.nextLine();
 
-                    mealPlan.deleteMenu(menuName);
+                    customizedPlan.deleteMenu(menuName);
                     System.out.println("The menu is deleted from the meal plan");
+                    System.out.println("Current meal plan: " + mealPlan.toString());
 
-                    break;
                 case "done":
                     System.out.println("Done customizing meal plan!");
                     break;
             }
-            return mealPlan;
         }
     }
 
     private DailyPlan addMenu() {
+        DailyPlan customizedPlan = new DailyPlan();
+
         System.out.println("Please enter the menu's name: ");
         String menuName = scanner.nextLine();
+
         System.out.println("Please enter the menu's calories: ");
         int cal = scanner.nextInt();
+
         System.out.println("Please enter the menu's price: ");
         double cost = scanner.nextDouble();
+
         System.out.println("Is the menu vegetarian?");
         boolean vegie = scanner.nextBoolean();
 
-        mealPlan.addMenu(menuName, cal, cost, vegie);
-        return mealPlan;
+        customizedPlan.addMenu(menuName, cal, cost, vegie);
+        return customizedPlan;
     }
 
 }
