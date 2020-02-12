@@ -72,7 +72,7 @@ public class DailyPlan {
         StringBuilder dailyPlanString = new StringBuilder();
 
         for (Menu menu : dailyPlan) {
-            dailyPlanString.append("\n").append(menu.getName());
+            dailyPlanString.append(menu.getName()).append("\n");
         }
 
         return dailyPlanString.toString();

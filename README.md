@@ -33,8 +33,8 @@ to minimize the time taken to build a customizable meal plan
 so more students like myself can achieve healthier lifestyle. 
 
 ###User Stories
-- As a user, I want to be able to add a menu to a daily meal plan
-- As a user, I want to be able to delete a menu from a daily meal plan
+- As a user, I want to be able to manually add a menu to a daily meal plan
+- As a user, I want to be able to manually delete a menu from a daily meal plan
 - As a user, I want to be able to view the list of menus in a daily meal plan
 - As a user, I want to be able to view the total calories and the cost of the daily meal plan
 - As a user, I want to be able to select a dietary restriction that exclude menus accordingly

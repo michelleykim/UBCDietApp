@@ -79,4 +79,12 @@ public class DailyPlanTest {
         assertEquals(plan.getTotalCalories(), 2100);
         assertEquals(plan.getTotalCost(), 38.25);
     }
+
+    @Test
+    void testToString() {
+        plan.addMenu("apple", 120, 1.75, true);
+        plan.addMenu("banana", 160, 1.25, true);
+        plan.addMenu("grape", 100, 3.99, true);
+        assertEquals(plan.toString(), "apple\nbanana\ngrape\n");
+    }
 }
