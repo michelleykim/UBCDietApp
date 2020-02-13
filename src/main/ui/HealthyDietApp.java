@@ -93,7 +93,6 @@ public class HealthyDietApp {
                 System.out.println("The menu is deleted from the meal plan");
                 System.out.println("Current meal plan:\n" + customizedPlan.toString());
             }
-            scanner.nextLine();
         }
         return customizedPlan;
     }
@@ -111,6 +110,7 @@ public class HealthyDietApp {
         System.out.println("Is the menu vegetarian?");
         boolean vegie = scanner.nextBoolean();
 
+        scanner.nextLine();
         newPlan.addMenu(menuName, cal, cost, vegie);
     }
 

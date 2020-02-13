@@ -86,6 +86,8 @@ public class DailyPlan {
     }
 
     public double getTotalCost() {
+        totalCost = 0.00;
+
         for (Menu menu : dailyPlan) {
             totalCost = totalCost + menu.getCost();
         }
