@@ -33,7 +33,7 @@ public class HealthyDietApp {
                 break;
             case "make own":
                 mealPlan = processCommand(command);
-                System.out.println("Your meal plan is: " + mealPlan.toString());
+                System.out.println("Your meal plan is: \n" + mealPlan.toString());
                 System.out.println("Total calories is: " + mealPlan.getTotalCalories());
                 System.out.println("Total price is: " + mealPlan.getTotalCost());
                 break;
@@ -81,9 +81,9 @@ public class HealthyDietApp {
             }
 
             if (command.equals("add menu")) {
-                customizedPlan = addMenu();
+                addMenu(customizedPlan);
                 System.out.println("The menu is added to the meal plan");
-                System.out.println("Current meal plan: " + customizedPlan + customizedPlan.toString());
+                System.out.println("Current meal plan:\n" + customizedPlan.toString());
 
             } else if (command.equals("delete menu")) {
                 System.out.println("Which menu would you like to delete?");
@@ -91,15 +91,14 @@ public class HealthyDietApp {
 
                 customizedPlan.deleteMenu(menuName);
                 System.out.println("The menu is deleted from the meal plan");
-                System.out.println("Current meal plan: " + customizedPlan.toString());
+                System.out.println("Current meal plan:\n" + customizedPlan.toString());
             }
+            scanner.nextLine();
         }
         return customizedPlan;
     }
 
-    private DailyPlan addMenu() {
-        DailyPlan customizedPlan = new DailyPlan();
-
+    private void addMenu(DailyPlan newPlan) {
         System.out.println("Please enter the menu's name: ");
         String menuName = scanner.nextLine();
 
@@ -112,8 +111,7 @@ public class HealthyDietApp {
         System.out.println("Is the menu vegetarian?");
         boolean vegie = scanner.nextBoolean();
 
-        customizedPlan.addMenu(menuName, cal, cost, vegie);
-        return customizedPlan;
+        newPlan.addMenu(menuName, cal, cost, vegie);
     }
 
 }
