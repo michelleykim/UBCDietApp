@@ -38,3 +38,6 @@ so more students like myself can achieve healthier lifestyle.
 - As a user, I want to be able to view the list of menus in a daily meal plan
 - As a user, I want to be able to view the total calories and the cost of the daily meal plan
 - As a user, I want to be able to select a dietary restriction that exclude menus accordingly
+- As a user, I want to be able to save my desired daily calories intake, budget, and dietary restrictions to file
+- As a user, I want to be able to save generated daily plan in my weekly plan
+- As a user, I want to be able to optionally load my info and my weekly plan when the program starts 
