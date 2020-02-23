@@ -103,7 +103,7 @@ public class HealthyDietApp {
     // MODIFIES: this
     // EFFECTS: initializes accounts
     private void init() {
-        account = new Account(2000, 200.00, true, null);
+        account = new Account(2000, 200.00, true);
     }
 
     private DailyPlan generate() {

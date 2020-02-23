@@ -1,16 +1,21 @@
 package persistence;
 
+import com.sun.org.apache.xpath.internal.operations.Bool;
 import model.Account;
+import model.DailyPlan;
+import model.Menu;
+import model.WeeklyPlan;
 
 import java.io.File;
 import java.io.IOException;
+import java.lang.reflect.Array;
 import java.nio.file.Files;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
 
 public class Reader {
-    public static final String DELIMITER = ",";
+    public static final String DELIMITER = "/";
 
     // EFFECTS: returns a list of accounts parsed from file; throws
     // IOException if an exception is raised when opening / reading from file
@@ -53,6 +58,22 @@ public class Reader {
         int desiredCalories = Integer.parseInt(components.get(0));
         double desiredBudget = Double.parseDouble(components.get(1));
         boolean vegetarian = Boolean.parseBoolean(components.get(2));
+
         return new Account(desiredCalories, desiredBudget, vegetarian);
     }
+
+    //private static WeeklyPlan parseWeeklyPlan(String stringPlan) {
+    //    WeeklyPlan weeklyPlan = null;
+    //    String[] splits = stringPlan.split(",");
+    //    ArrayList<String> plans = new ArrayList<>(Arrays.asList(splits));
+    //
+    //    for (String plan : plans) {
+    //        ArrayList<DailyPlan> dailyPlan = new ArrayList();
+    //
+    //        if (menu.getName == plan) {
+    //            dailyPlan.add(menu);
+    //        }
+    //    }
+    //    return weeklyPlan;
+    //}
 }

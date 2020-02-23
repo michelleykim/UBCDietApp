@@ -1,5 +1,6 @@
 package model;
 
+import persistence.Reader;
 import persistence.Saveable;
 
 import java.io.PrintWriter;
@@ -39,6 +40,10 @@ public class WeeklyPlan implements Saveable {
 
     @Override
     public void save(PrintWriter printWriter) {
+        printWriter.print(getTotalCalories());
+        printWriter.print(Reader.DELIMITER);
+        printWriter.print(getTotalCost());
+        printWriter.print(Reader.DELIMITER);
         printWriter.print(weeklyPlan);
     }
 }
