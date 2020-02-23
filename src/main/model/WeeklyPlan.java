@@ -1,8 +1,11 @@
 package model;
 
+import persistence.Saveable;
+
+import java.io.PrintWriter;
 import java.util.ArrayList;
 
-public class WeeklyPlan {
+public class WeeklyPlan implements Saveable {
     ArrayList<DailyPlan> weeklyPlan;
     int totalCalories;
     double totalCost;
@@ -34,4 +37,8 @@ public class WeeklyPlan {
         return totalCost;
     }
 
+    @Override
+    public void save(PrintWriter printWriter) {
+        printWriter.print(weeklyPlan);
+    }
 }

@@ -1,14 +1,25 @@
 package ui;
 
+import model.Account;
 import model.DailyPlan;
 import model.WeeklyPlan;
+import persistence.Reader;
+import persistence.Writer;
 
+import java.io.File;
+import java.io.FileNotFoundException;
+import java.io.IOException;
+import java.io.UnsupportedEncodingException;
+import java.util.List;
 import java.util.Scanner;
 
+// Meal Planner Application
 public class HealthyDietApp {
+    private static final String ACCOUNTS_FILE = "./data/accounts.txt";
     private Scanner scanner;
     private DailyPlan mealPlan;
     private WeeklyPlan weeklyPlan;
+    private Account account;
     String command;
 
     // EFFECTS: runs the healthy diet application
@@ -21,6 +32,8 @@ public class HealthyDietApp {
     // EFFECTS: processes user input
     private void runHealthyDietApp() {
         boolean keepGoing = true;
+
+        loadAccounts();
 
         while (keepGoing) {
 
@@ -47,6 +60,33 @@ public class HealthyDietApp {
     }
 
     // MODIFIES: this
+    // EFFECTS: loads accounts from ACCOUNTS_FILE, if that file exists;
+    // otherwise initializes accounts with default values
+    private void loadAccounts() {
+        try {
+            List<Account> accounts = Reader.readAccounts(new File(ACCOUNTS_FILE));
+            account = accounts.get(0);
+        } catch (IOException e) {
+            init();
+        }
+    }
+
+    // EFFECTS: saves state of chequing and savings accounts to ACCOUNTS_FILE
+    private void saveAccounts() {
+        try {
+            Writer writer = new Writer(new File(ACCOUNTS_FILE));
+            writer.write(account);
+            writer.close();
+            System.out.println("Accounts saved to file " + ACCOUNTS_FILE);
+        } catch (FileNotFoundException e) {
+            System.out.println("Unable to save accounts to " + ACCOUNTS_FILE);
+        } catch (UnsupportedEncodingException e) {
+            e.printStackTrace();
+            // this is due to a programming error
+        }
+    }
+
+    // MODIFIES: this
     // EFFECTS: processes user command
     private DailyPlan processCommand(String command) {
 
@@ -58,6 +98,12 @@ public class HealthyDietApp {
         }
 
         return mealPlan;
+    }
+
+    // MODIFIES: this
+    // EFFECTS: initializes accounts
+    private void init() {
+        account = new Account(2000, 200.00, true, null);
     }
 
     private DailyPlan generate() {
