@@ -30,6 +30,17 @@ public class Account implements Saveable {
         return vegetarian;
     }
 
+    public void setDesiredCalories(int i) {
+        this.desiredCalories = i;
+    }
+
+    public void setDesiredBudget(double d) {
+        this.desiredBudget = d;
+    }
+
+    public void setVegetarian(boolean b) {
+        this.vegetarian = b;
+    }
 
     @Override
     public void save(PrintWriter printWriter) {
