@@ -6,7 +6,7 @@ import persistence.Saveable;
 import java.io.PrintWriter;
 import java.util.ArrayList;
 
-public class WeeklyPlan implements Saveable {
+public class WeeklyPlan {
     ArrayList<DailyPlan> weeklyPlan;
     int totalCalories;
     double totalCost;
@@ -36,14 +36,5 @@ public class WeeklyPlan implements Saveable {
             totalCost = totalCost + plan.getTotalCost();
         }
         return totalCost;
-    }
-
-    @Override
-    public void save(PrintWriter printWriter) {
-        printWriter.print(getTotalCalories());
-        printWriter.print(Reader.DELIMITER);
-        printWriter.print(getTotalCost());
-        printWriter.print(Reader.DELIMITER);
-        printWriter.print(weeklyPlan);
     }
 }

@@ -39,4 +39,5 @@ public class Account implements Saveable {
         printWriter.print(Reader.DELIMITER);
         printWriter.print(vegetarian);
     }
+
 }
