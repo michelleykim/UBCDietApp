@@ -49,10 +49,9 @@ public class Reader {
         return new ArrayList<>(Arrays.asList(splits));
     }
 
-    // REQUIRES: components has size 4 where element 0 represents the
-    // id of the next account to be constructed, element 1 represents
-    // the id, elements 2 represents the name and element 3 represents
-    // the balance of the account to be constructed
+    // REQUIRES: components has size 3 where element 0 represents the
+    // desiredCalories, element 1 represents the desiredBudget,
+    // and elements 2 represents the dietary restriction
     // EFFECTS: returns an account constructed from components
     private static Account parseAccount(List<String> components) {
         int desiredCalories = Integer.parseInt(components.get(0));

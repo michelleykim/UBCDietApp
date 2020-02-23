@@ -10,6 +10,7 @@ public class Account implements Saveable {
     private double desiredBudget;
     private boolean vegetarian;
 
+    // MODIFIES: this
     // EFFECTS: constructs an account with desired calories, budget, and dietary restriction
     public Account(int calories, double budget, boolean veggie) {
         this.desiredCalories = calories;
@@ -43,6 +44,7 @@ public class Account implements Saveable {
     }
 
     @Override
+    // save the account data in a form: desiredCalories/desiredBudget/vegetarian
     public void save(PrintWriter printWriter) {
         printWriter.print(desiredCalories);
         printWriter.print(Reader.DELIMITER);

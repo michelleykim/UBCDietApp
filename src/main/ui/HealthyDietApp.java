@@ -47,24 +47,8 @@ public class HealthyDietApp {
                 System.out.println("Good bye!");
                 keepGoing = false;
             } else {
-                whichCommand(command);
+                processCommand(command);
             }
-        }
-    }
-
-    private void whichCommand(String command) {
-        if (command.equals("view account")) {
-            mealPlan = processCommand(command);
-        } else if (command.equals("generate")) {
-            mealPlan = processCommand(command);
-            System.out.println("Your recommended meal plan is:\n" + mealPlan.toString());
-            weeklyPlan = addDailyToWeekly();
-        } else if (command.equals("make own")) {
-            mealPlan = processCommand(command);
-            System.out.println("Your meal plan is: \n" + mealPlan.toString());
-            System.out.println("Total calories is: " + mealPlan.getTotalCalories());
-            System.out.println("Total price is: " + mealPlan.getTotalCost());
-            weeklyPlan = addDailyToWeekly();
         }
     }
 
@@ -97,14 +81,20 @@ public class HealthyDietApp {
             } else if (whetherOr.equals("no")) {
                 mealPlan = generateFromScratch();
             }
-
+            System.out.println("Your recommended meal plan is:\n" + mealPlan.toString());
+            weeklyPlan = addDailyToWeekly();
         } else if (command.equals("make own")) {
             mealPlan = makeOwn();
+            System.out.println("Your meal plan is: \n" + mealPlan.toString());
+            System.out.println("Total calories is: " + mealPlan.getTotalCalories());
+            System.out.println("Total price is: " + mealPlan.getTotalCost());
+            weeklyPlan = addDailyToWeekly();
         }
 
         return mealPlan;
     }
 
+    // EFFECTS: shows the account information to the user
     private void viewAccount() {
         System.out.println("Account desired daily calories intake is: ");
         System.out.println(account.getDesiredCalories());
@@ -123,6 +113,8 @@ public class HealthyDietApp {
         }
     }
 
+    // MODIFIES: this
+    // EFFECTS: sets the account to the desired daily calories intake, budget and dietary restrictions of the user
     private void changeAccountInfo() {
         System.out.println("Please enter desired daily calories intake: ");
         account.setDesiredCalories(scanner.nextInt());
@@ -135,7 +127,7 @@ public class HealthyDietApp {
 
     // MODIFIES: this
     // EFFECTS: loads accounts from ACCOUNTS_FILE, if that file exists;
-    // otherwise initializes accounts with default values
+    //          otherwise initializes accounts with default values
     private void loadAccounts() {
         try {
             List<Account> accounts = Reader.readAccounts(new File(ACCOUNTS_FILE));
@@ -151,6 +143,8 @@ public class HealthyDietApp {
         account = new Account(2000, 200.00, true);
     }
 
+    // MODIFIES: this
+    // EFFECTS: generate daily meal plan using the account information
     private DailyPlan generateUsingAccount() {
         DailyPlan generatedPlan = new DailyPlan();
 
@@ -162,6 +156,8 @@ public class HealthyDietApp {
         return generatedPlan;
     }
 
+    // MODIFIES: this
+    // EFFECTS: generate daily meal plan using the user input
     private DailyPlan generateFromScratch() {
         DailyPlan generatedPlan = new DailyPlan();
 
@@ -176,6 +172,8 @@ public class HealthyDietApp {
         return generatedPlan;
     }
 
+    // MODIFIES: this
+    // EFFECTS: make a meal plan with the user's choice of menu
     private DailyPlan makeOwn() {
         DailyPlan customizedPlan = new DailyPlan();
 
@@ -206,6 +204,8 @@ public class HealthyDietApp {
         return customizedPlan;
     }
 
+    // MODIFIES: this
+    // EFFECTS: add menu to customized meal plan
     private void addMenu(DailyPlan newPlan) {
         System.out.println("Please enter the menu's name: ");
         String menuName = scanner.nextLine();
@@ -223,6 +223,8 @@ public class HealthyDietApp {
         newPlan.addMenu(menuName, cal, cost, veggie);
     }
 
+    // MODIFIES: this
+    // EFFECTS: delete menu from customized meal plan
     private WeeklyPlan addDailyToWeekly() {
         weeklyPlan = new WeeklyPlan();
         System.out.println("Would you like to add the daily plan to the weekly plan? (yes or no)");

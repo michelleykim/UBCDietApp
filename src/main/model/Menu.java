@@ -9,7 +9,7 @@ public class Menu {
     public boolean vegetarian;
 
     // REQUIRES: calories >= 0,  cost >=0, foodPlace is not null
-    // EFFECTS: construct a menu with calories, cost, food place where the menu is available,
+    // EFFECTS: construct a menu with name, calories, cost,
     //          and whether or not the menu is vegetarian
     public Menu(String menuName, int cal, double price, boolean vegie) {
         name = menuName;
