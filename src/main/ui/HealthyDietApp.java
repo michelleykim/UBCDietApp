@@ -1,12 +1,15 @@
 package ui;
 
 import model.DailyPlan;
+import model.WeeklyPlan;
 
 import java.util.Scanner;
 
 public class HealthyDietApp {
     private Scanner scanner;
     private DailyPlan mealPlan;
+    private WeeklyPlan weeklyPlan;
+    String command;
 
     // EFFECTS: runs the healthy diet application
     public HealthyDietApp() {
@@ -17,26 +20,29 @@ public class HealthyDietApp {
     // MODIFIES: this
     // EFFECTS: processes user input
     private void runHealthyDietApp() {
-        String command;
+        boolean keepGoing = true;
 
-        System.out.println("Please select an option (generate or make own or quit):");
-        command = scanner.nextLine();
-        System.out.println("You selected: " + command);
+        while (keepGoing) {
 
-        switch (command) {
-            case "quit":
+            System.out.println("Please select an option (generate or make own or quit):");
+            command = scanner.nextLine();
+            System.out.println("You selected: " + command);
+
+            if (command.equals("quit")) {
                 System.out.println("Good bye!");
-                break;
-            case "generate":
+                keepGoing = false;
+            } else if (command.equals("generate")) {
                 mealPlan = processCommand(command);
                 System.out.println("Your recommended meal plan is:\n" + mealPlan.toString());
-                break;
-            case "make own":
+                weeklyPlan = addDailyToWeekly();
+
+            } else if (command.equals("make own")) {
                 mealPlan = processCommand(command);
                 System.out.println("Your meal plan is: \n" + mealPlan.toString());
                 System.out.println("Total calories is: " + mealPlan.getTotalCalories());
                 System.out.println("Total price is: " + mealPlan.getTotalCost());
-                break;
+                weeklyPlan = addDailyToWeekly();
+            }
         }
     }
 
@@ -50,6 +56,7 @@ public class HealthyDietApp {
         } else if (command.equals("make own")) {
             mealPlan = makeOwn();
         }
+
         return mealPlan;
     }
 
@@ -112,6 +119,23 @@ public class HealthyDietApp {
 
         scanner.nextLine();
         newPlan.addMenu(menuName, cal, cost, vegie);
+    }
+
+    private WeeklyPlan addDailyToWeekly() {
+
+        weeklyPlan = new WeeklyPlan();
+
+        scanner.nextLine();
+        System.out.println("Would you like to add the daily plan to the weekly plan? (yes or no)");
+        String whetherOr = scanner.nextLine();
+
+        if (whetherOr.equals("yes")) {
+            weeklyPlan.addPlan(mealPlan);
+            System.out.println("The daily plan has added to your weekly plan.");
+        } else if (whetherOr.equals("no")) {
+            System.out.println("The daily plan has not added to your weekly plan.");
+        }
+        return weeklyPlan;
     }
 
 }
