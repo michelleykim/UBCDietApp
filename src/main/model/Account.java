@@ -6,9 +6,9 @@ import persistence.Saveable;
 import java.io.PrintWriter;
 
 public class Account implements Saveable {
-    private int desiredCalories;
-    private double desiredBudget;
-    private boolean vegetarian;
+    private static int desiredCalories;
+    private static double desiredBudget;
+    private static boolean vegetarian;
 
     // MODIFIES: this
     // EFFECTS: constructs an account with desired calories, budget, and dietary restriction
@@ -19,15 +19,15 @@ public class Account implements Saveable {
 
     }
 
-    public int getDesiredCalories() {
+    public static int getDesiredCalories() {
         return desiredCalories;
     }
 
-    public double getDesiredBudget() {
+    public static double getDesiredBudget() {
         return desiredBudget;
     }
 
-    public boolean getVegetarian() {
+    public static boolean getVegetarian() {
         return vegetarian;
     }
 

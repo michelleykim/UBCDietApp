@@ -25,6 +25,7 @@ public class MakeOwnListener implements ActionListener {
 
         //Display the window.
         frame.pack();
+        MainPage.frame.setVisible(false);
         frame.setVisible(true);
     }
 

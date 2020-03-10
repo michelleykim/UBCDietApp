@@ -26,6 +26,7 @@ public class ViewListener implements ActionListener {
 
         //Display the window.
         frame.pack();
+        MainPage.frame.setVisible(false);
         frame.setVisible(true);
     }
 

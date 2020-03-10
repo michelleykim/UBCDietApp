@@ -4,10 +4,10 @@ import javax.swing.*;
 import java.awt.*;
 
 public class MainPage extends JPanel {
-
     private static final String viewString = "View Account Information";
     private static final String generateString = "Generate Meal Plan";
     private static final String makeOwnString = "Make Own Meal Plan";
+    protected static JFrame frame;
     private JButton viewButton;
     private JButton generateButton;
     private JButton makeOwnButton;
@@ -51,7 +51,7 @@ public class MainPage extends JPanel {
      */
     private static void createAndShowGUI() {
         //Create and set up the window.
-        JFrame frame = new JFrame("Project_k3x2b");
+        frame = new JFrame("Project_k3x2b");
         frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 
         //Create and set up the content pane.
