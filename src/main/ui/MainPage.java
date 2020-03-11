@@ -32,8 +32,7 @@ public class MainPage extends JPanel {
 
         //Create a panel that uses BoxLayout.
         JPanel buttonPane = new JPanel();
-        buttonPane.setLayout(new BoxLayout(buttonPane,
-                BoxLayout.PAGE_AXIS));
+        buttonPane.setLayout(new BoxLayout(buttonPane, BoxLayout.PAGE_AXIS));
         buttonPane.add(viewButton);
         buttonPane.add(Box.createVerticalStrut(5));
         buttonPane.add(generateButton);

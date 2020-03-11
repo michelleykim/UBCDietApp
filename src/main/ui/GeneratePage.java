@@ -24,8 +24,7 @@ public class GeneratePage extends JPanel {
 
         //Create a panel that uses BoxLayout.
         JPanel buttonPane = new JPanel();
-        buttonPane.setLayout(new BoxLayout(buttonPane,
-                BoxLayout.PAGE_AXIS));
+        buttonPane.setLayout(new BoxLayout(buttonPane, BoxLayout.PAGE_AXIS));
         buttonPane.add(savedAccountButton);
         buttonPane.add(Box.createVerticalStrut(5));
         buttonPane.add(newAccountButton);

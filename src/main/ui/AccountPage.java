@@ -32,8 +32,7 @@ public class AccountPage extends JPanel {
 
         //Create a panel that uses BoxLayout.
         JPanel buttonPane = new JPanel();
-        buttonPane.setLayout(new BoxLayout(buttonPane,
-                BoxLayout.PAGE_AXIS));
+        buttonPane.setLayout(new BoxLayout(buttonPane, BoxLayout.PAGE_AXIS));
         buttonPane.add(viewButton);
         buttonPane.setBorder(BorderFactory.createEmptyBorder(10, 10, 10, 10));
 
