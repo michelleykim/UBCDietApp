@@ -10,36 +10,35 @@ import java.awt.event.ActionListener;
 import static com.sun.javafx.fxml.expression.Expression.add;
 
 public class ViewAccount {
+    protected static JFrame frame;
     public JPanel accountPanel;
     private JButton editInfoButton;
     private JButton backButton;
-    private JList list1;
+    private JLabel calories;
+    private JLabel veggie;
+    private JLabel budget;
 
-    public ViewAccount(JFrame frame) {
-
-        JLabel calories = new JLabel();
-        calories.setText("Desired Daily Calories Intake: " + Account.getDesiredCalories());
-        JLabel budget = new JLabel();
-        budget.setText("Daily Budget: " + Account.getDesiredBudget());
-        JLabel veggie = new JLabel();
-        veggie.setText("Dietary Restrictions (Vegetarian): " + Account.getVegetarian());
-
-        list1.add(calories);
-        list1.add(budget);
-        list1.add(veggie);
+    public ViewAccount() {
 
         //Create and set up the window.
+        frame = new JFrame("Project_k3x2b");
         frame.setContentPane(accountPanel);
         frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+
+        calories.setText("Desired Daily Calories Intake: " + Account.getDesiredCalories());
+        budget.setText("Daily Budget: " + Account.getDesiredBudget());
+        veggie.setText("Dietary Restrictions (Vegetarian): " + Account.getVegetarian());
+
         //Display the window.
         frame.pack();
         frame.setVisible(true);
 
+
         editInfoButton.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-                new EditAccount(frame);
-                accountPanel.setVisible(false);
+                new EditAccount();
+                frame.setVisible(false);
             }
         });
 
@@ -47,7 +46,7 @@ public class ViewAccount {
             @Override
             public void actionPerformed(ActionEvent e) {
                 new App();
-                accountPanel.setVisible(false);
+                frame.setVisible(false);
             }
         });
 

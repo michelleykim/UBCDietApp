@@ -5,12 +5,13 @@ import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
 public class DailyPlan {
-
+    protected static JFrame frame;
     private JList list1;
     private JPanel dailyPlanPanel;
     private JButton doneButton;
 
-    public DailyPlan(JFrame frame) {
+    public DailyPlan() {
+        frame = new JFrame("Project_k3x2b");
         //Create and set up the window.
         frame.setContentPane(dailyPlanPanel);
         frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
@@ -28,7 +29,7 @@ public class DailyPlan {
             @Override
             public void actionPerformed(ActionEvent e) {
                 new App();
-                dailyPlanPanel.setVisible(false);
+                frame.setVisible(false);
             }
         });
 

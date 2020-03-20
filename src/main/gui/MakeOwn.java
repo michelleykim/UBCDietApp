@@ -5,6 +5,7 @@ import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
 public class MakeOwn {
+    protected static JFrame frame;
     private JList list1;
     private JPanel makeOwnPanel;
     private JButton addMenuButton;
@@ -12,7 +13,9 @@ public class MakeOwn {
     private JButton doneButton;
     private JButton backButton;
 
-    public MakeOwn(JFrame frame) {
+    public MakeOwn() {
+
+        frame = new JFrame("Project_k3x2b");
         //Create and set up the window.
         frame.setContentPane(makeOwnPanel);
         frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
@@ -37,8 +40,8 @@ public class MakeOwn {
         doneButton.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-                new DailyPlan(frame);
-                makeOwnPanel.setVisible(false);
+                new DailyPlan();
+                frame.setVisible(false);
             }
         });
 
@@ -46,7 +49,7 @@ public class MakeOwn {
             @Override
             public void actionPerformed(ActionEvent e) {
                 new App();
-                makeOwnPanel.setVisible(false);
+                frame.setVisible(false);
             }
         });
     }

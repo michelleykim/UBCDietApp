@@ -31,16 +31,16 @@ public class Account implements Saveable {
         return vegetarian;
     }
 
-    public void setDesiredCalories(int i) {
-        this.desiredCalories = i;
+    public static void setDesiredCalories(int i) {
+        desiredCalories = i;
     }
 
-    public void setDesiredBudget(double d) {
-        this.desiredBudget = d;
+    public static void setDesiredBudget(double d) {
+        desiredBudget = d;
     }
 
-    public void setVegetarian(boolean b) {
-        this.vegetarian = b;
+    public static void setVegetarian(boolean b) {
+        vegetarian = b;
     }
 
     @Override

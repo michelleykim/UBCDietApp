@@ -7,12 +7,15 @@ import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
 public class GeneratePlan {
+    protected static JFrame frame;
     private JButton generateUsingAccountInfoButton;
     private JPanel generatePanel;
     private JButton generateFromScratchButton;
     private JButton backButton;
 
-    public GeneratePlan(JFrame frame) {
+    public GeneratePlan() {
+
+        frame = new JFrame("Project_k3x2b");
     //Create and set up the window.
         frame.setContentPane(generatePanel);
         frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
@@ -20,11 +23,13 @@ public class GeneratePlan {
         frame.pack();
         frame.setVisible(true);
 
+
+
         generateFromScratchButton.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-                new GenerateIntermidStep(frame);
-                generatePanel.setVisible(false);
+                new GenerateIntermidStep();
+                frame.setVisible(false);
             }
         });
 
@@ -34,8 +39,8 @@ public class GeneratePlan {
 
                 // generate meal plan using account info -> Store it in daily plan
 
-                new DailyPlan(frame);
-                generatePanel.setVisible(false);
+                new DailyPlan();
+                frame.setVisible(false);
             }
         });
 
@@ -43,7 +48,7 @@ public class GeneratePlan {
             @Override
             public void actionPerformed(ActionEvent e) {
                 new App();
-                generatePanel.setVisible(false);
+                frame.setVisible(false);
             }
         });
     }

@@ -16,7 +16,7 @@
           <text value="What is your desired calories intake?"/>
         </properties>
       </component>
-      <component id="1217f" class="javax.swing.JTextField" binding="ex2000TextField" default-binding="true">
+      <component id="1217f" class="javax.swing.JTextField" binding="caloriesTextField">
         <constraints>
           <grid row="1" column="0" row-span="1" col-span="2" vsize-policy="0" hsize-policy="6" anchor="8" fill="1" indent="0" use-parent-layout="false">
             <preferred-size width="150" height="-1"/>
@@ -34,7 +34,7 @@
           <text value="What is your budget?"/>
         </properties>
       </component>
-      <component id="5d6d9" class="javax.swing.JTextField" binding="ex2125TextField" default-binding="true">
+      <component id="5d6d9" class="javax.swing.JTextField" binding="budgetTextField">
         <constraints>
           <grid row="3" column="0" row-span="1" col-span="2" vsize-policy="0" hsize-policy="6" anchor="8" fill="1" indent="0" use-parent-layout="false">
             <preferred-size width="150" height="-1"/>
@@ -52,7 +52,7 @@
           <text value="Are you vegetarian? (yes or no)"/>
         </properties>
       </component>
-      <component id="4aad6" class="javax.swing.JTextField" binding="yesTextField" default-binding="true">
+      <component id="4aad6" class="javax.swing.JTextField" binding="veggieTextField">
         <constraints>
           <grid row="5" column="0" row-span="1" col-span="2" vsize-policy="0" hsize-policy="6" anchor="8" fill="1" indent="0" use-parent-layout="false">
             <preferred-size width="150" height="-1"/>

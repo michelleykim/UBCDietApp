@@ -10,6 +10,7 @@ public class App {
     private JButton viewAccountButton;
     private JButton generatePlanButton;
     private JButton makeOwnPlanButton;
+    private JButton quitButton;
 
     public App() {
 
@@ -28,30 +29,38 @@ public class App {
         viewAccountButton.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-                new ViewAccount(frame);
-                mainPanel.setVisible(false);
+                new ViewAccount();
+                frame.setVisible(false);
             }
         });
 
         generatePlanButton.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-                new GeneratePlan(frame);
-                mainPanel.setVisible(false);
+                new GeneratePlan();
+                frame.setVisible(false);
             }
         });
 
         makeOwnPlanButton.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-                new MakeOwn(frame);
-                mainPanel.setVisible(false);
+                new MakeOwn();
+                frame.setVisible(false);
+            }
+        });
+
+        quitButton.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                //save account information and break
             }
         });
     }
 
     public static void main(String[] args) {
         frame = new JFrame("Project_k3x2b");
+
         new App();
     }
 
