@@ -14,7 +14,13 @@
             <preferred-size width="150" height="50"/>
           </grid>
         </constraints>
-        <properties/>
+        <properties>
+          <model>
+            <item value="Kiwi"/>
+            <item value="Apple"/>
+            <item value="Banana"/>
+          </model>
+        </properties>
       </component>
       <component id="c39c3" class="javax.swing.JButton" binding="addMenuButton" default-binding="true">
         <constraints>

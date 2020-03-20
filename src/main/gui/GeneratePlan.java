@@ -1,5 +1,7 @@
 package gui;
 
+import model.Account;
+
 import javax.swing.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
@@ -21,14 +23,15 @@ public class GeneratePlan {
         generateFromScratchButton.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-
+                
             }
         });
 
         generateUsingAccountInfoButton.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-
+                new DailyPlan(frame);
+                generatePanel.setVisible(false);
             }
         });
 

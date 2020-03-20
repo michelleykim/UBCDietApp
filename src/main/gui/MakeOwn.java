@@ -36,7 +36,8 @@ public class MakeOwn {
         doneButton.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-
+                new DailyPlan(frame);
+                makeOwnPanel.setVisible(false);
             }
         });
     }

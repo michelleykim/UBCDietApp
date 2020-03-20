@@ -17,6 +17,17 @@ public class ViewAccount {
 
     public ViewAccount(JFrame frame) {
 
+        JLabel calories = new JLabel();
+        calories.setText("Desired Daily Calories Intake: " + Account.getDesiredCalories());
+        JLabel budget = new JLabel();
+        budget.setText("Daily Budget: " + Account.getDesiredBudget());
+        JLabel veggie = new JLabel();
+        veggie.setText("Dietary Restrictions (Vegetarian): " + Account.getVegetarian());
+
+        list1.add(calories);
+        list1.add(budget);
+        list1.add(veggie);
+
         //Create and set up the window.
         frame.setContentPane(accountPanel);
         frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
@@ -24,14 +35,11 @@ public class ViewAccount {
         frame.pack();
         frame.setVisible(true);
 
-        JLabel calories = new JLabel("Desired Daily Calories Intake: " + Account.getDesiredCalories());
-        JLabel budget = new JLabel("Daily Budget: " + Account.getDesiredBudget());
-        JLabel veggie = new JLabel("Dietary Restrictions (Vegetarian): " + Account.getVegetarian());
-        
-        list1.add(calories);
-        list1.add(budget);
-        list1.add(veggie);
+        initiateButtons();
 
+    }
+
+    public void initiateButtons() {
         editInfoButton.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
