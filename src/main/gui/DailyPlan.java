@@ -1,11 +1,14 @@
 package gui;
 
 import javax.swing.*;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
 
 public class DailyPlan {
 
     private JList list1;
     private JPanel dailyPlanPanel;
+    private JButton doneButton;
 
     public DailyPlan(JFrame frame) {
         //Create and set up the window.
@@ -20,6 +23,14 @@ public class DailyPlan {
         // tell total calories
         // tell total cost
 
+
+        doneButton.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                new App();
+                dailyPlanPanel.setVisible(false);
+            }
+        });
 
     }
 }

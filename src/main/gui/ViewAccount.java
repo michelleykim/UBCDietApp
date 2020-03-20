@@ -35,15 +35,11 @@ public class ViewAccount {
         frame.pack();
         frame.setVisible(true);
 
-        initiateButtons();
-
-    }
-
-    public void initiateButtons() {
         editInfoButton.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-
+                new EditAccount(frame);
+                accountPanel.setVisible(false);
             }
         });
 
@@ -54,5 +50,9 @@ public class ViewAccount {
                 accountPanel.setVisible(false);
             }
         });
+
     }
+
+
+
 }

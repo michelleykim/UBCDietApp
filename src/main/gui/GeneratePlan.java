@@ -23,13 +23,17 @@ public class GeneratePlan {
         generateFromScratchButton.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-                
+                new GenerateIntermidStep(frame);
+                generatePanel.setVisible(false);
             }
         });
 
         generateUsingAccountInfoButton.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
+
+                // generate meal plan using account info -> Store it in daily plan
+
                 new DailyPlan(frame);
                 generatePanel.setVisible(false);
             }
