@@ -6,10 +6,11 @@ import javax.swing.*;
 import java.awt.*;
 
 public class AccountPage extends JPanel {
-    private JList list;
-    private DefaultListModel listModel;
-    private static final String editString = "Edit Account Information";
-    private JButton viewButton;
+    protected JList list;
+    protected DefaultListModel listModel;
+    protected static final String editString = "Edit Account Information";
+    protected JButton viewButton;
+    protected JButton backButton;
 
     public AccountPage() {
         super(new BorderLayout());
@@ -30,10 +31,19 @@ public class AccountPage extends JPanel {
         viewButton.setActionCommand(editString);
         viewButton.addActionListener(viewListener);
 
+        backButton = new JButton("Back");
+        BackMainListener backMainListener = new BackMainListener(backButton);
+        backButton.setActionCommand("Back");
+        backButton.addActionListener(backMainListener);
+
         //Create a panel that uses BoxLayout.
         JPanel buttonPane = new JPanel();
-        buttonPane.setLayout(new BoxLayout(buttonPane, BoxLayout.PAGE_AXIS));
+        buttonPane.setLayout(new BoxLayout(buttonPane, BoxLayout.LINE_AXIS));
         buttonPane.add(viewButton);
+        buttonPane.add(Box.createHorizontalStrut(5));
+        buttonPane.add(new JSeparator(SwingConstants.VERTICAL));
+        buttonPane.add(Box.createHorizontalStrut(5));
+        buttonPane.add(backButton);
         buttonPane.setBorder(BorderFactory.createEmptyBorder(10, 10, 10, 10));
 
         add(listScrollPane, BorderLayout.CENTER);

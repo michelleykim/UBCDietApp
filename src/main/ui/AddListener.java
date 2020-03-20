@@ -17,24 +17,24 @@ public class AddListener implements ActionListener, DocumentListener {
     @Override
     public void actionPerformed(ActionEvent e) {
         //add menus to the dailyplan
-        String name = MakePage.menuName.getText();
-        int cal = Integer.parseInt(MakePage.calories.getText());
-        int cost = Integer.parseInt(MakePage.price.getText());
-        boolean veggie = Boolean.parseBoolean(MakePage.vegetarian.getText());
+        String name = MakeOwnPage.menuName.getText();
+        int cal = Integer.parseInt(MakeOwnPage.calories.getText());
+        int cost = Integer.parseInt(MakeOwnPage.price.getText());
+        boolean veggie = Boolean.parseBoolean(MakeOwnPage.vegetarian.getText());
 
-        int index = MakePage.list.getSelectedIndex();
+        int index = MakeOwnPage.list.getSelectedIndex();
         if (index == 1) {
             index = 0;
         } else {
             index = index + 1;
         }
 
-        MakePage.listModel.insertElementAt(MakePage.menuName.getText(), index);
-        MakePage.menuName.requestFocusInWindow();
-        MakePage.menuName.setText("");
+        MakeOwnPage.listModel.insertElementAt(MakeOwnPage.menuName.getText(), index);
+        MakeOwnPage.menuName.requestFocusInWindow();
+        MakeOwnPage.menuName.setText("");
 
-        MakePage.list.setSelectedIndex(index);
-        MakePage.list.ensureIndexIsVisible(index);
+        MakeOwnPage.list.setSelectedIndex(index);
+        MakeOwnPage.list.ensureIndexIsVisible(index);
     }
 
     @Override
