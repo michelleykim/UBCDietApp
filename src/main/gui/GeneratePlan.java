@@ -24,8 +24,12 @@ public class GeneratePlan {
         frame.pack();
         frame.setVisible(true);
 
+        initiateScratchButton();
+        initiateAccountButton();
+        initiateBackButton();
+    }
 
-
+    public void initiateScratchButton() {
         generateFromScratchButton.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
@@ -33,7 +37,9 @@ public class GeneratePlan {
                 frame.setVisible(false);
             }
         });
+    }
 
+    public void initiateAccountButton() {
         generateUsingAccountInfoButton.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
@@ -46,7 +52,9 @@ public class GeneratePlan {
                 frame.setVisible(false);
             }
         });
+    }
 
+    public void initiateBackButton() {
         backButton.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {

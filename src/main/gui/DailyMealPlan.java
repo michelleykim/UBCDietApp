@@ -34,6 +34,10 @@ public class DailyMealPlan {
         totalCalories.setText("Total Calories: " + DailyPlan.getTotalCalories());
         totalPrice.setText("Daily Budget: " + DailyPlan.getTotalCost());
 
+        initiateDoneButton();
+    }
+
+    public void initiateDoneButton() {
         doneButton.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
@@ -41,6 +45,5 @@ public class DailyMealPlan {
                 frame.setVisible(false);
             }
         });
-
     }
 }

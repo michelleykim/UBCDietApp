@@ -33,6 +33,13 @@ public class MakeOwn {
         }
         list1.setModel(listModel);
 
+        initiateAddButton();
+        initiateDeleteButton();
+        initiateDoneButton();
+        initiateBackButton();
+    }
+
+    public void initiateAddButton() {
         addMenuButton.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
@@ -40,7 +47,9 @@ public class MakeOwn {
                 frame.setVisible(false);
             }
         });
+    }
 
+    public void initiateDeleteButton() {
         deleteMenuButton.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
@@ -49,7 +58,9 @@ public class MakeOwn {
                 listModel.removeElementAt(index);
             }
         });
+    }
 
+    public void initiateDoneButton() {
         doneButton.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
@@ -57,7 +68,9 @@ public class MakeOwn {
                 frame.setVisible(false);
             }
         });
+    }
 
+    public void initiateBackButton() {
         backButton.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {

@@ -39,6 +39,12 @@ public class ViewAccount {
         frame.pack();
         frame.setVisible(true);
 
+        initiateLoadButton();
+        initiateEditButton();
+        initiateBackButton();
+    }
+
+    public void initiateLoadButton() {
         loadInfoButton.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
@@ -52,7 +58,9 @@ public class ViewAccount {
                 frame.setVisible(false);
             }
         });
+    }
 
+    public void initiateEditButton() {
         editInfoButton.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
@@ -60,7 +68,9 @@ public class ViewAccount {
                 frame.setVisible(false);
             }
         });
+    }
 
+    public void initiateBackButton() {
         backButton.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
@@ -68,9 +78,5 @@ public class ViewAccount {
                 frame.setVisible(false);
             }
         });
-
     }
-
-
-
 }

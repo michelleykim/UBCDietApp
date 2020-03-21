@@ -29,6 +29,11 @@ public class EditAccount {
         frame.pack();
         frame.setVisible(true);
 
+        initiateDoneButton();
+        initiateBackButton();
+    }
+
+    public void initiateDoneButton() {
         doneButton.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
@@ -40,7 +45,9 @@ public class EditAccount {
                 frame.setVisible(false);
             }
         });
+    }
 
+    public void initiateBackButton() {
         backButton.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
@@ -48,6 +55,5 @@ public class EditAccount {
                 frame.setVisible(false);
             }
         });
-
     }
 }

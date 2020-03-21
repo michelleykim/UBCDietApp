@@ -38,11 +38,13 @@ public class App {
         frame.pack();
         frame.setVisible(true);
 
-        initiateButtons();
+        initiateViewButton();
+        initiateGenerateButton();
+        initiateMakeButton();
+        initiateQuitButtons();
     }
 
-
-    public void initiateButtons() {
+    public void initiateViewButton() {
         viewAccountButton.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
@@ -51,7 +53,9 @@ public class App {
                 frame.setVisible(false);
             }
         });
+    }
 
+    public void initiateGenerateButton() {
         generatePlanButton.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
@@ -61,6 +65,9 @@ public class App {
             }
         });
 
+    }
+
+    public void initiateMakeButton() {
         makeOwnPlanButton.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
@@ -69,7 +76,9 @@ public class App {
                 frame.setVisible(false);
             }
         });
+    }
 
+    public void initiateQuitButtons() {
         quitButton.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
