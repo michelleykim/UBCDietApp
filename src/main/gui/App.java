@@ -5,6 +5,8 @@ import persistence.Reader;
 import persistence.Writer;
 
 import javax.swing.*;
+import java.applet.Applet;
+import java.applet.AudioClip;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.awt.event.WindowEvent;
@@ -12,6 +14,7 @@ import java.io.File;
 import java.io.FileNotFoundException;
 import java.io.IOException;
 import java.io.UnsupportedEncodingException;
+import java.net.MalformedURLException;
 import java.util.List;
 
 public class App {
@@ -23,6 +26,8 @@ public class App {
     private JButton makeOwnPlanButton;
     private JButton quitButton;
     protected static Account account;
+    File audioFile = new File("c:\\Windows\\media\\click.wav");
+    AudioClip audio;
 
     public App() {
 
@@ -41,6 +46,7 @@ public class App {
         viewAccountButton.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
+                playSound();
                 new ViewAccount();
                 frame.setVisible(false);
             }
@@ -49,6 +55,7 @@ public class App {
         generatePlanButton.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
+                playSound();
                 new GeneratePlan();
                 frame.setVisible(false);
             }
@@ -57,6 +64,7 @@ public class App {
         makeOwnPlanButton.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
+                playSound();
                 new MakeOwn();
                 frame.setVisible(false);
             }
@@ -74,10 +82,20 @@ public class App {
                 } catch (FileNotFoundException | UnsupportedEncodingException fnfe) {
                     System.out.println("Unable to save account to " + ACCOUNTS_FILE);
                 }
+                playSound();
                 new Saved();
                 frame.setVisible(false);
             }
         });
+    }
+
+    public void playSound() {
+        try {
+            audio = Applet.newAudioClip(audioFile.toURL());
+        } catch (MalformedURLException e) {
+            e.printStackTrace();
+        }
+        audio.play();
     }
 
     public static void main(String[] args) {
