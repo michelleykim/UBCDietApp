@@ -50,14 +50,14 @@ public class DailyPlan {
 
     // MODIFIES: this
     // EFFECTS: adds a menu to daily plan
-    public void addMenu(String menuName, int cal, double price, boolean vegie) {
+    public static void addMenu(String menuName, int cal, double price, boolean vegie) {
         Menu newMenu = new Menu(menuName, cal, price, vegie);
         dailyPlan.add(newMenu);
     }
 
     // MODIFIES: this
     // EFFECTS: deletes a menu from daily plan
-    public void deleteMenu(String menuName) {
+    public static void deleteMenu(String menuName) {
         for (Menu menu : dailyPlan) {
             if (menu.getName().equals(menuName)) {
                 dailyPlan.remove(menu);
@@ -78,6 +78,8 @@ public class DailyPlan {
     }
 
     public static int getTotalCalories() {
+        totalCalories = 0;
+
         for (Menu menu : dailyPlan) {
             totalCalories = totalCalories + menu.getCalories();
         }

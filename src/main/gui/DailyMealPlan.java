@@ -1,6 +1,7 @@
 package gui;
 
 import model.DailyPlan;
+import model.Menu;
 
 import javax.swing.*;
 import java.awt.event.ActionEvent;
@@ -12,7 +13,8 @@ public class DailyMealPlan {
     private JButton doneButton;
     private JLabel totalCalories;
     private JLabel totalPrice;
-    private JLabel dailyMenu;
+    private JList list1;
+    private DefaultListModel listModel;
 
     public DailyMealPlan() {
         frame = new JFrame("Project_k3x2b");
@@ -23,8 +25,11 @@ public class DailyMealPlan {
         frame.pack();
         frame.setVisible(true);
 
-        // turn list into a string and put it on a label
-        dailyMenu.setText(DailyPlan.toNewString());
+        listModel = new DefaultListModel();
+        for (Menu menu: DailyPlan.dailyPlan) {
+            listModel.addElement(menu.getName());
+        }
+        list1.setModel(listModel);
 
         totalCalories.setText("Total Calories: " + DailyPlan.getTotalCalories());
         totalPrice.setText("Daily Budget: " + DailyPlan.getTotalCost());
