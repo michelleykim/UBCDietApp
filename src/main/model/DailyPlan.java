@@ -4,19 +4,18 @@ import java.util.ArrayList;
 import java.util.Iterator;
 
 public class DailyPlan {
-    ArrayList<Menu> dailyPlan;
-    ArrayList<Menu> allMenus;
-    public int totalCalories;
-    public double totalCost;
+    public static ArrayList<Menu> dailyPlan = new ArrayList<>();
+    public static ArrayList<Menu> allMenus = allMenus();
+    public static int totalCalories;
+    public static double totalCost;
 
     // EFFECTS: constructs an empty daily plan
     public DailyPlan() {
-        dailyPlan = new ArrayList<>();
-        allMenus = allMenus();
+        //construct an empty daily plan
     }
 
     // EFFECTS: constructs a list of all the menus
-    public ArrayList<Menu> allMenus() {
+    public static ArrayList<Menu> allMenus() {
         allMenus = new ArrayList<>();
         Menu milk = new Menu("milk", 200, 2.25, true);
         Menu oreo = new Menu("oreo", 800, 3.00, true);
@@ -33,7 +32,7 @@ public class DailyPlan {
 
     // MODIFIES: this
     // EFFECTS: generate a recommended daily plan based on user desired calories and budget
-    public void generateMealPlan(int totalCalories, double totalBudget, boolean vegetarian) {
+    public static void generateMealPlan(int totalCalories, double totalBudget, boolean vegetarian) {
 
         if (vegetarian) {
             allMenus.removeIf(menu -> !menu.getVegetarian());
@@ -68,24 +67,24 @@ public class DailyPlan {
     }
 
     // EFFECTS: returns a string representation of daily plan
-    public String toString() {
+    public static String toNewString() {
         StringBuilder dailyPlanString = new StringBuilder();
 
         for (Menu menu : dailyPlan) {
-            dailyPlanString.append(menu.getName()).append("\n");
+            dailyPlanString.append(menu.getName()).append(" ");
         }
 
         return dailyPlanString.toString();
     }
 
-    public int getTotalCalories() {
+    public static int getTotalCalories() {
         for (Menu menu : dailyPlan) {
             totalCalories = totalCalories + menu.getCalories();
         }
         return totalCalories;
     }
 
-    public double getTotalCost() {
+    public static double getTotalCost() {
         totalCost = 0.00;
 
         for (Menu menu : dailyPlan) {

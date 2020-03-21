@@ -16,7 +16,7 @@
           <text value="What is your desired calories intake?"/>
         </properties>
       </component>
-      <component id="d999f" class="javax.swing.JTextField" binding="ex1800TextField" default-binding="true">
+      <component id="d999f" class="javax.swing.JTextField" binding="caloriesTextField">
         <constraints>
           <grid row="1" column="0" row-span="1" col-span="2" vsize-policy="0" hsize-policy="6" anchor="8" fill="1" indent="0" use-parent-layout="false">
             <preferred-size width="150" height="-1"/>
@@ -34,7 +34,7 @@
           <text value="What is your budget for this meal?"/>
         </properties>
       </component>
-      <component id="db5b2" class="javax.swing.JTextField" binding="ex2000TextField" default-binding="true">
+      <component id="db5b2" class="javax.swing.JTextField" binding="budgetTextField">
         <constraints>
           <grid row="3" column="0" row-span="1" col-span="2" vsize-policy="0" hsize-policy="6" anchor="8" fill="1" indent="0" use-parent-layout="false">
             <preferred-size width="150" height="-1"/>
@@ -49,17 +49,17 @@
           <grid row="4" column="0" row-span="1" col-span="2" vsize-policy="0" hsize-policy="0" anchor="8" fill="0" indent="0" use-parent-layout="false"/>
         </constraints>
         <properties>
-          <text value="Are you vegetarian? (yes or no)"/>
+          <text value="Are you vegetarian? (true or false)"/>
         </properties>
       </component>
-      <component id="ac43f" class="javax.swing.JTextField" binding="exYesTextField" default-binding="true">
+      <component id="ac43f" class="javax.swing.JTextField" binding="veggieTextField">
         <constraints>
           <grid row="5" column="0" row-span="1" col-span="2" vsize-policy="0" hsize-policy="6" anchor="8" fill="1" indent="0" use-parent-layout="false">
             <preferred-size width="150" height="-1"/>
           </grid>
         </constraints>
         <properties>
-          <text value="ex) yes"/>
+          <text value="ex) true"/>
         </properties>
       </component>
       <component id="c5abb" class="javax.swing.JButton" binding="doneButton" default-binding="true">

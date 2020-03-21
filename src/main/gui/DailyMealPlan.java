@@ -1,16 +1,20 @@
 package gui;
 
+import model.DailyPlan;
+
 import javax.swing.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
-public class DailyPlan {
+public class DailyMealPlan {
     protected static JFrame frame;
-    private JList list1;
     private JPanel dailyPlanPanel;
     private JButton doneButton;
+    private JLabel totalCalories;
+    private JLabel totalPrice;
+    private JLabel dailyMenu;
 
-    public DailyPlan() {
+    public DailyMealPlan() {
         frame = new JFrame("Project_k3x2b");
         //Create and set up the window.
         frame.setContentPane(dailyPlanPanel);
@@ -19,11 +23,11 @@ public class DailyPlan {
         frame.pack();
         frame.setVisible(true);
 
+        // turn list into a string and put it on a label
+        dailyMenu.setText(DailyPlan.toNewString());
 
-        // make a list of menus in daily meal plan
-        // tell total calories
-        // tell total cost
-
+        totalCalories.setText("Total Calories: " + DailyPlan.getTotalCalories());
+        totalPrice.setText("Daily Budget: " + DailyPlan.getTotalCost());
 
         doneButton.addActionListener(new ActionListener() {
             @Override

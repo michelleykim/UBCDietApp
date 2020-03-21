@@ -3,8 +3,6 @@ package model;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
-import java.util.ArrayList;
-
 import static org.junit.jupiter.api.Assertions.*;
 
 public class DailyPlanTest {
@@ -109,6 +107,6 @@ public class DailyPlanTest {
         plan.addMenu("apple", 120, 1.75, true);
         plan.addMenu("banana", 160, 1.25, true);
         plan.addMenu("grape", 100, 3.99, true);
-        assertEquals(plan.toString(), "apple\nbanana\ngrape\n");
+        assertEquals(plan.toNewString(), "apple\nbanana\ngrape\n");
     }
 }

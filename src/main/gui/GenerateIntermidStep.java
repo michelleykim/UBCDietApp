@@ -1,14 +1,21 @@
 package gui;
 
+import model.Account;
+import model.DailyPlan;
+
 import javax.swing.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
+import static java.lang.Boolean.parseBoolean;
+import static java.lang.Double.parseDouble;
+import static java.lang.Integer.parseInt;
+
 public class GenerateIntermidStep {
     protected static JFrame frame;
-    private JTextField ex1800TextField;
-    private JTextField ex2000TextField;
-    private JTextField exYesTextField;
+    private JTextField caloriesTextField;
+    private JTextField budgetTextField;
+    private JTextField veggieTextField;
     private JPanel generateIntermediatePanel;
     private JButton doneButton;
     private JButton backButton;
@@ -26,7 +33,12 @@ public class GenerateIntermidStep {
         doneButton.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-                new DailyPlan();
+                DailyPlan.generateMealPlan(
+                        parseInt(caloriesTextField.getText()),
+                        parseDouble(budgetTextField.getText()),
+                        parseBoolean(veggieTextField.getText()));
+
+                new DailyMealPlan();
                 frame.setVisible(false);
             }
         });

@@ -1,6 +1,7 @@
 package gui;
 
 import model.Account;
+import model.DailyPlan;
 
 import javax.swing.*;
 import java.awt.event.ActionEvent;
@@ -38,8 +39,10 @@ public class GeneratePlan {
             public void actionPerformed(ActionEvent e) {
 
                 // generate meal plan using account info -> Store it in daily plan
+                DailyPlan.generateMealPlan(
+                        Account.getDesiredCalories(), Account.getDesiredBudget(), Account.getVegetarian());
 
-                new DailyPlan();
+                new DailyMealPlan();
                 frame.setVisible(false);
             }
         });

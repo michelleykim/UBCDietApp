@@ -81,11 +81,11 @@ public class HealthyDietApp {
             } else if (whetherOr.equals("no")) {
                 mealPlan = generateFromScratch();
             }
-            System.out.println("Your recommended meal plan is:\n" + mealPlan.toString());
+            System.out.println("Your recommended meal plan is:\n" + mealPlan.toNewString());
             weeklyPlan = addDailyToWeekly();
         } else if (command.equals("make own")) {
             mealPlan = makeOwn();
-            System.out.println("Your meal plan is: \n" + mealPlan.toString());
+            System.out.println("Your meal plan is: \n" + mealPlan.toNewString());
             System.out.println("Total calories is: " + mealPlan.getTotalCalories());
             System.out.println("Total price is: " + mealPlan.getTotalCost());
             weeklyPlan = addDailyToWeekly();
@@ -190,7 +190,7 @@ public class HealthyDietApp {
             if (command.equals("add menu")) {
                 addMenu(customizedPlan);
                 System.out.println("The menu is added to the meal plan");
-                System.out.println("Current meal plan:\n" + customizedPlan.toString());
+                System.out.println("Current meal plan:\n" + customizedPlan.toNewString());
 
             } else if (command.equals("delete menu")) {
                 System.out.println("Which menu would you like to delete?");
@@ -198,7 +198,7 @@ public class HealthyDietApp {
 
                 customizedPlan.deleteMenu(menuName);
                 System.out.println("The menu is deleted from the meal plan");
-                System.out.println("Current meal plan:\n" + customizedPlan.toString());
+                System.out.println("Current meal plan:\n" + customizedPlan.toNewString());
             }
         }
         return customizedPlan;

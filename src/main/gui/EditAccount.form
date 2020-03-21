@@ -49,7 +49,7 @@
           <grid row="4" column="0" row-span="1" col-span="2" vsize-policy="0" hsize-policy="0" anchor="8" fill="0" indent="0" use-parent-layout="false"/>
         </constraints>
         <properties>
-          <text value="Are you vegetarian? (yes or no)"/>
+          <text value="Are you vegetarian? (true or false)"/>
         </properties>
       </component>
       <component id="4aad6" class="javax.swing.JTextField" binding="veggieTextField">
@@ -59,7 +59,7 @@
           </grid>
         </constraints>
         <properties>
-          <text value="yes"/>
+          <text value="ex) true"/>
         </properties>
       </component>
       <component id="8cc38" class="javax.swing.JButton" binding="doneButton" default-binding="true">
