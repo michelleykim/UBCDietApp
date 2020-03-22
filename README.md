@@ -1,4 +1,4 @@
-# Healthy Diet Planner
+# Diet Planner
 
 ## "I just want to survive through university"
 
@@ -40,3 +40,5 @@ so more students like myself can achieve healthier lifestyle.
 - As a user, I want to be able to select a dietary restriction that exclude menus accordingly
 - As a user, I want to be able to save my desired daily calories intake, budget, and dietary restrictions to file
 - As a user, I want to be able to optionally load my info when the program starts 
+
+###Instruction for Grader

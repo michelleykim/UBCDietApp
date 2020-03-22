@@ -7,9 +7,9 @@ import javax.swing.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
-import static com.sun.xml.internal.ws.message.Util.parseBool;
 import static java.lang.Double.parseDouble;
 import static java.lang.Integer.parseInt;
+import static java.lang.Boolean.parseBoolean;
 
 // Represents a window to add the specification of the desired menu
 public class AddMenu {
@@ -49,7 +49,7 @@ public class AddMenu {
                         menuName.getText(),
                         parseInt(calories.getText()),
                         parseDouble(price.getText()),
-                        parseBool(veggie.getText())
+                        parseBoolean(veggie.getText())
                 );
                 new MakeOwn();
                 frame.setVisible(false);
