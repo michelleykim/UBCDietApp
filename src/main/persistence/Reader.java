@@ -1,14 +1,9 @@
 package persistence;
 
-import com.sun.org.apache.xpath.internal.operations.Bool;
 import model.Account;
-import model.DailyPlan;
-import model.Menu;
-import model.WeeklyPlan;
 
 import java.io.File;
 import java.io.IOException;
-import java.lang.reflect.Array;
 import java.nio.file.Files;
 import java.util.ArrayList;
 import java.util.Arrays;

@@ -1,6 +1,5 @@
-package gui;
+package ui;
 
-import model.Account;
 import model.DailyPlan;
 
 import javax.swing.*;

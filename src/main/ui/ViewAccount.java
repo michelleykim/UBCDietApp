@@ -1,10 +1,9 @@
-package gui;
+package ui;
 
 import model.Account;
 import persistence.Reader;
 
 import javax.swing.*;
-import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.io.File;
