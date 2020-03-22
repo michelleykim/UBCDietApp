@@ -10,6 +10,12 @@ import java.util.List;
 import static org.junit.jupiter.api.Assertions.*;
 
 public class ReaderTest {
+
+    @Test
+    void testConstructor() {
+        new Reader();
+    }
+
     @Test
     void testParseAccountsFile1() {
         try {
