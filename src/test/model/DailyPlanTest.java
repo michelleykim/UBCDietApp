@@ -110,10 +110,10 @@ public class DailyPlanTest {
     }
 
     @Test
-    void testGenerateMealPlanEqualBudget() {
-        plan.generateMealPlan(200, 20.00, false);
-        assertEquals(plan.getTotalCalories(), 200);
-        assertEquals(plan.getTotalCost(), 2.25);
+    void testGenerateMealPlanSmallCaloriesSmallBudget() {
+        plan.generateMealPlan(100, 1.00, false);
+        assertEquals(plan.getTotalCalories(), 0);
+        assertEquals(plan.getTotalCost(), 0.00);
     }
 
     @Test
