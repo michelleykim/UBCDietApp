@@ -96,6 +96,13 @@ public class DailyPlanTest {
     }
 
     @Test
+    void testGenerateMealPlanEqualCalories() {
+        plan.generateMealPlan(200, 20.00, false);
+        assertEquals(plan.getTotalCalories(), 200);
+        assertEquals(plan.getTotalCost(), 2.25);
+    }
+
+    @Test
     void testGenerateMealPlanSmallCalories() {
         plan.generateMealPlan(80, 20.00, false);
         assertEquals(plan.getTotalCalories(), 0);
