@@ -2,6 +2,7 @@ package model;
 
 import java.util.ArrayList;
 
+//Represents an individual menu that can be added to the daily plan
 public class Menu {
     public String name;
     public int calories;

@@ -7,6 +7,7 @@ import javax.swing.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
+// Represents a window with current menus of the meal plan laid out.
 public class DailyMealPlan {
     protected static JFrame frame;
     private JPanel dailyPlanPanel;
@@ -16,14 +17,12 @@ public class DailyMealPlan {
     private JList list1;
     private DefaultListModel listModel;
 
+    // EFFECTS: set up a window with current menus of the meal plan laid out in a JList.
     public DailyMealPlan() {
         frame = new JFrame("Project_k3x2b");
         //Create and set up the window.
         frame.setContentPane(dailyPlanPanel);
         frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-        //Display the window.
-        frame.pack();
-        frame.setVisible(true);
 
         listModel = new DefaultListModel();
         for (Menu menu: DailyPlan.dailyPlan) {
@@ -34,9 +33,14 @@ public class DailyMealPlan {
         totalCalories.setText("Total Calories: " + DailyPlan.getTotalCalories());
         totalPrice.setText("Daily Budget: " + DailyPlan.getTotalCost());
 
+        //Display the window.
+        frame.pack();
+        frame.setVisible(true);
+
         initiateDoneButton();
     }
 
+    // EFFECTS: go back to the main window (App)
     public void initiateDoneButton() {
         doneButton.addActionListener(new ActionListener() {
             @Override

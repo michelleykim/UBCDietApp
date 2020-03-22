@@ -11,6 +11,7 @@ import static com.sun.xml.internal.ws.message.Util.parseBool;
 import static java.lang.Double.parseDouble;
 import static java.lang.Integer.parseInt;
 
+// Represents a window to add the specification of the desired menu
 public class AddMenu {
     protected static JFrame frame;
     private JPanel addMenuPanel;
@@ -22,6 +23,7 @@ public class AddMenu {
     private JButton backButton;
     protected Menu menu;
 
+    // EFFECTS: set up a window where the specifics of the menu will be written
     public AddMenu() {
         frame = new JFrame("Project_k3x2b");
         //Create and set up the window.
@@ -35,11 +37,14 @@ public class AddMenu {
         initiateBackButton();
     }
 
+    // REQUIRES: non-empty textFields
+    // MODIFIES: DailyPlan
+    // EFFECTS: adds a menu with typed calories, price and dietary restrictions to the daily plan.
+    //          go back to the MakeOwn window.
     public void initiateDoneButton() {
         doneButton.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-                // add menu
                 DailyPlan.addMenu(
                         menuName.getText(),
                         parseInt(calories.getText()),
@@ -52,6 +57,7 @@ public class AddMenu {
         });
     }
 
+    // EFFECTS: go back to the MakeOwn window.
     public void initiateBackButton() {
         backButton.addActionListener(new ActionListener() {
             @Override

@@ -14,7 +14,7 @@ import java.util.List;
 import java.util.Scanner;
 
 // Meal Planner Application
-public class HealthyDietApp {
+public class DietApp {
     private static final String ACCOUNTS_FILE = "./data/accounts.txt";
     private Scanner scanner;
     private DailyPlan mealPlan;
@@ -23,7 +23,7 @@ public class HealthyDietApp {
     String command;
 
     // EFFECTS: runs the healthy diet application
-    public HealthyDietApp() {
+    public DietApp() {
         scanner = new Scanner(System.in);
         runHealthyDietApp();
     }

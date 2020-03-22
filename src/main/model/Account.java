@@ -5,6 +5,7 @@ import persistence.Saveable;
 
 import java.io.PrintWriter;
 
+//Represents an account. Only one account is formed per app
 public class Account implements Saveable {
     private static int desiredCalories;
     private static double desiredBudget;

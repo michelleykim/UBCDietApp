@@ -3,6 +3,7 @@ package model;
 import java.util.ArrayList;
 import java.util.Iterator;
 
+//Represents a daily plan. Each Account can have one daily plan at a time.
 public class DailyPlan {
     public static ArrayList<Menu> dailyPlan = new ArrayList<>();
     public static ArrayList<Menu> allMenus = allMenus();
@@ -77,6 +78,7 @@ public class DailyPlan {
         return dailyPlanString.toString();
     }
 
+    // EFFECTS: add up all the calories of the menu in the plan and return total calories
     public static int getTotalCalories() {
         totalCalories = 0;
 
@@ -86,6 +88,7 @@ public class DailyPlan {
         return totalCalories;
     }
 
+    // EFFECTS: add up all the cost of the menu in the plan and return total cost
     public static double getTotalCost() {
         totalCost = 0.00;
 

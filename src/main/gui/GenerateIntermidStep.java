@@ -11,6 +11,7 @@ import static java.lang.Boolean.parseBoolean;
 import static java.lang.Double.parseDouble;
 import static java.lang.Integer.parseInt;
 
+// Represents a window where user can input the desired information to generate meal plan with
 public class GenerateIntermidStep {
     protected static JFrame frame;
     private JTextField caloriesTextField;
@@ -20,8 +21,9 @@ public class GenerateIntermidStep {
     private JButton doneButton;
     private JButton backButton;
 
+    // EFFECTS: set up a window where user can type
+    //          desired calories, budget, dietary restriction to generate meal plan with
     public GenerateIntermidStep() {
-
         frame = new JFrame("Project_k3x2b");
         //Create and set up the window.
         frame.setContentPane(generateIntermediatePanel);
@@ -34,6 +36,10 @@ public class GenerateIntermidStep {
         initiateBackButton();
     }
 
+    // REQUIRES: textFields are not empty
+    // MODIFIES: DailyPlay
+    // EFFECTS: generate a daily plan using the desired calories, budget, and dietary restriction users entered.
+    //          go to DailyMealPlan window.
     public void initiateDoneButton() {
         doneButton.addActionListener(new ActionListener() {
             @Override
@@ -49,6 +55,7 @@ public class GenerateIntermidStep {
         });
     }
 
+    // EFFECTS: go back to GeneratePlan window.
     public void initiateBackButton() {
         backButton.addActionListener(new ActionListener() {
             @Override

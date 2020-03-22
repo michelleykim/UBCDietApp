@@ -7,6 +7,7 @@ import javax.swing.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
+// Represents a window for users to manually make their meal plan
 public class MakeOwn {
     protected static JFrame frame;
     private JList list1;
@@ -17,8 +18,8 @@ public class MakeOwn {
     private JButton doneButton;
     private JButton backButton;
 
+    // EFFECTS: set up a window that shows the list of menus currently in the daily plan in a JList
     public MakeOwn() {
-
         frame = new JFrame("Project_k3x2b");
         //Create and set up the window.
         frame.setContentPane(makeOwnPanel);
@@ -39,6 +40,7 @@ public class MakeOwn {
         initiateBackButton();
     }
 
+    // EFFECTS: go to AddMenu window.
     public void initiateAddButton() {
         addMenuButton.addActionListener(new ActionListener() {
             @Override
@@ -49,6 +51,9 @@ public class MakeOwn {
         });
     }
 
+    // REQUIRES: DailyPlan is not empty
+    // MODIFIES: DailyPlan
+    // EFFECTS: delete the menu of selected index from the daily plan
     public void initiateDeleteButton() {
         deleteMenuButton.addActionListener(new ActionListener() {
             @Override
@@ -60,6 +65,7 @@ public class MakeOwn {
         });
     }
 
+    // EFFECTS: go to DailyMealPlan window.
     public void initiateDoneButton() {
         doneButton.addActionListener(new ActionListener() {
             @Override
@@ -70,6 +76,7 @@ public class MakeOwn {
         });
     }
 
+    // EFFECTS: go back to main App window.
     public void initiateBackButton() {
         backButton.addActionListener(new ActionListener() {
             @Override

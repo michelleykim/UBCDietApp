@@ -10,6 +10,7 @@ import static java.lang.Boolean.parseBoolean;
 import static java.lang.Double.parseDouble;
 import static java.lang.Integer.parseInt;
 
+// Represents a window that user can edit account information
 public class EditAccount {
     protected static JFrame frame;
     private JTextField caloriesTextField;
@@ -19,8 +20,8 @@ public class EditAccount {
     private JButton backButton;
     private JPanel editAccountPanel;
 
+    // EFFECTS: set up a window where user can edit desired calories, budget and dietary restrictions.
     public EditAccount() {
-
         frame = new JFrame("Project_k3x2b");
         //Create and set up the window.
         frame.setContentPane(editAccountPanel);
@@ -33,6 +34,10 @@ public class EditAccount {
         initiateBackButton();
     }
 
+    // REQUIRES: textFields are not empty
+    // MODIFIES: Account
+    // EFFECTS: updates account information with the user input.
+    //          go back to the ViewAccount window.
     public void initiateDoneButton() {
         doneButton.addActionListener(new ActionListener() {
             @Override
@@ -47,6 +52,7 @@ public class EditAccount {
         });
     }
 
+    // EFFECTS: go back to the ViewAccount window.
     public void initiateBackButton() {
         backButton.addActionListener(new ActionListener() {
             @Override

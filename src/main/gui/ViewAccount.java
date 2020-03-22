@@ -13,6 +13,7 @@ import java.util.List;
 
 import static com.sun.javafx.fxml.expression.Expression.add;
 
+// Represents a window that shows the current account information.
 public class ViewAccount {
     private static final String ACCOUNTS_FILE = "./data/accounts.txt";
     protected static JFrame frame;
@@ -24,8 +25,8 @@ public class ViewAccount {
     private JLabel budget;
     private JButton loadInfoButton;
 
+    // EFFECTS: set up a window that shows desired calories, budget and dietary restrictions of the account
     public ViewAccount() {
-
         //Create and set up the window.
         frame = new JFrame("Project_k3x2b");
         frame.setContentPane(accountPanel);
@@ -44,6 +45,9 @@ public class ViewAccount {
         initiateBackButton();
     }
 
+    // MODIFIES: Account
+    // EFFECTS: load the previously saved account information.
+    //          if no accounts were saved before, nothing happens.
     public void initiateLoadButton() {
         loadInfoButton.addActionListener(new ActionListener() {
             @Override
@@ -60,6 +64,7 @@ public class ViewAccount {
         });
     }
 
+    // EFFECTS: go to EditAccount window.
     public void initiateEditButton() {
         editInfoButton.addActionListener(new ActionListener() {
             @Override
@@ -70,6 +75,7 @@ public class ViewAccount {
         });
     }
 
+    // EFFECTS: go back to main App window.
     public void initiateBackButton() {
         backButton.addActionListener(new ActionListener() {
             @Override
