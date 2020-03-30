@@ -90,3 +90,7 @@ Chosen option: Test and design a class that is robust.
 The constructor of Menu class throws two exceptions for negative value of calories and price.
 The thrown exceptions are caught in DailyPlan class addMenu method. 
 Tests for exceptions can be found in MenuTest class.
+
+###Phase 4: Task 3
+allMenus, which is the list of all the menu items was a part of DailyPlan, which is not quite relevant to the class.
+- Made new class AllMenus, and kept DailyPlan everything directly related to the daily meal plan.

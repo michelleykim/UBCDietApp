@@ -3,10 +3,11 @@ package model;
 import java.util.ArrayList;
 import java.util.Iterator;
 
+import static model.AllMenus.allMenus;
+
 //Represents a daily plan. Each Account can have one daily plan at a time.
 public class DailyPlan {
     public static ArrayList<Menu> dailyPlan = new ArrayList<>();
-    public static ArrayList<Menu> allMenus = allMenus();
     public static int totalCalories;
     public static double totalCost;
 
@@ -15,30 +16,10 @@ public class DailyPlan {
         //construct an empty daily plan
     }
 
-    // EFFECTS: constructs a list of all the menus
-    public static ArrayList<Menu> allMenus() {
-        allMenus = new ArrayList<>();
-        try {
-            Menu milk = new Menu("milk", 200, 2.25, true);
-            Menu oreo = new Menu("oreo", 800, 3.00, true);
-            Menu steak = new Menu("steak", 1100, 33.00, false);
-            Menu wrap = new Menu("wrap", 880, 7.75, false);
-
-            allMenus.add(milk);
-            allMenus.add(oreo);
-            allMenus.add(steak);
-            allMenus.add(wrap);
-
-            return allMenus;
-        } catch (Exception e) {
-            System.out.println("Cannot get all menus.");
-            return allMenus;
-        }
-    }
-
     // MODIFIES: this
     // EFFECTS: generate a recommended daily plan based on user desired calories and budget
     public static void generateMealPlan(int totalCalories, double totalBudget, boolean vegetarian) {
+        new AllMenus();
 
         if (vegetarian) {
             allMenus.removeIf(menu -> !menu.getVegetarian());

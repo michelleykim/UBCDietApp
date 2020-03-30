@@ -24,15 +24,16 @@ public class MakeOwn {
         //Create and set up the window.
         frame.setContentPane(makeOwnPanel);
         frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-        //Display the window.
-        frame.pack();
-        frame.setVisible(true);
 
         listModel = new DefaultListModel();
         for (Menu menu: DailyPlan.dailyPlan) {
             listModel.addElement(menu.getName());
         }
         list1.setModel(listModel);
+
+        //Display the window.
+        frame.pack();
+        frame.setVisible(true);
 
         initiateAddButton();
         initiateDeleteButton();

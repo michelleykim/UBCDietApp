@@ -17,8 +17,8 @@ public class DailyPlanTest {
 
     @Test
     void testConstructor() {
-        assertEquals(getTotalCalories(), 6420);
-        assertEquals(getTotalCost(), 61.95);
+        assertEquals(getTotalCalories(), 7520);
+        assertEquals(getTotalCost(), 94.95);
     }
 
     @Test
@@ -85,8 +85,8 @@ public class DailyPlanTest {
     @Test
     void testGenerateMealPlanNoRestriction2() {
         generateMealPlan(2200, 50.00, false);
-        assertEquals(getTotalCalories(), 6420);
-        assertEquals(getTotalCost(), 61.95);
+        assertEquals(getTotalCalories(), 7520);
+        assertEquals(getTotalCost(), 94.95);
     }
 
     @Test
@@ -127,8 +127,8 @@ public class DailyPlanTest {
     @Test
     void testGenerateMealPlanSmallCaloriesSmallBudget() {
         generateMealPlan(100, 1.00, false);
-        assertEquals(getTotalCalories(), 6420);
-        assertEquals(getTotalCost(), 61.95);
+        assertEquals(getTotalCalories(), 7520);
+        assertEquals(getTotalCost(), 94.95);
     }
 
     @Test
