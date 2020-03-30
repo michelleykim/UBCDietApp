@@ -104,7 +104,7 @@ public class DailyPlan {
         for (Menu menu : dailyPlan) {
             totalCost = totalCost + menu.getCost();
         }
-        return totalCost;
+        return Math.round(totalCost * 100.0) / 100.0;
     }
 
 }
