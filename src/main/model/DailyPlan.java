@@ -18,17 +18,22 @@ public class DailyPlan {
     // EFFECTS: constructs a list of all the menus
     public static ArrayList<Menu> allMenus() {
         allMenus = new ArrayList<>();
-        Menu milk = new Menu("milk", 200, 2.25, true);
-        Menu oreo = new Menu("oreo", 800, 3.00, true);
-        Menu steak = new Menu("steak", 1100, 33.00, false);
-        Menu wrap = new Menu("wrap", 880, 7.75, false);
+        try {
+            Menu milk = new Menu("milk", 200, 2.25, true);
+            Menu oreo = new Menu("oreo", 800, 3.00, true);
+            Menu steak = new Menu("steak", 1100, 33.00, false);
+            Menu wrap = new Menu("wrap", 880, 7.75, false);
 
-        allMenus.add(milk);
-        allMenus.add(oreo);
-        allMenus.add(steak);
-        allMenus.add(wrap);
+            allMenus.add(milk);
+            allMenus.add(oreo);
+            allMenus.add(steak);
+            allMenus.add(wrap);
 
-        return allMenus;
+            return allMenus;
+        } catch (Exception e) {
+            System.out.println("Cannot get all menus.");
+            return allMenus;
+        }
     }
 
     // MODIFIES: this
@@ -52,8 +57,12 @@ public class DailyPlan {
     // MODIFIES: this
     // EFFECTS: adds a menu to daily plan
     public static void addMenu(String menuName, int cal, double price, boolean vegie) {
-        Menu newMenu = new Menu(menuName, cal, price, vegie);
-        dailyPlan.add(newMenu);
+        try {
+            Menu newMenu = new Menu(menuName, cal, price, vegie);
+            dailyPlan.add(newMenu);
+        } catch (Exception e) {
+            System.out.println(e.getMessage());
+        }
     }
 
     // MODIFIES: this
