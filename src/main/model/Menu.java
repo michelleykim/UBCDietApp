@@ -1,9 +1,7 @@
 package model;
 
-import model.exceptions.MinusBudgetException;
+import model.exceptions.MinusPriceException;
 import model.exceptions.MinusCaloriesException;
-
-import java.util.ArrayList;
 
 //Represents an individual menu that can be added to the daily plan
 public class Menu {
@@ -12,16 +10,15 @@ public class Menu {
     public double cost;
     public boolean vegetarian;
 
-    // REQUIRES: calories >= 0,  cost >=0
     // EFFECTS: construct a menu with name, calories, cost,
     //          and whether or not the menu is vegetarian
     public Menu(String menuName, int cal, double price, boolean vegie)
-            throws MinusCaloriesException, MinusBudgetException {
+            throws MinusCaloriesException, MinusPriceException {
         if (cal < 0) {
             throw new MinusCaloriesException("Calories is negative.");
         } else {
             if (price < 0) {
-                throw new MinusBudgetException("Price is negative.");
+                throw new MinusPriceException("Price is negative.");
             } else {
                 name = menuName;
                 calories = cal;

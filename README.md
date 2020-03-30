@@ -84,3 +84,9 @@ then "Load Account Information" as explained earlier.
 5. The state of application is automatically saved to the file when the user close the app using "Quit" button. 
 The state of application will not be saved to the file if the user close the app using default closing operation 
 (The red box of X on the top right corner of the app).
+
+###Phase 4: Task 2
+Chosen option: Test and design a class that is robust.
+The constructor of Menu class throws two exceptions for negative value of calories and price.
+The thrown exceptions are caught in DailyPlan class addMenu method. 
+Tests for exceptions can be found in MenuTest class.
