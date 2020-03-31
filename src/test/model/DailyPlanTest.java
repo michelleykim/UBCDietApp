@@ -22,6 +22,15 @@ public class DailyPlanTest {
     }
 
     @Test
+    void testAddMenuException() {
+        try {
+            plan.addMenu("apple", -120, 1.75, true);
+        } catch (Exception e) {
+            System.out.println(e.getMessage());
+        }
+    }
+
+    @Test
     void testAddOneMenu() {
         plan.addMenu("apple", 120, 1.75, true);
         assertEquals(getTotalCalories(), 3480);
