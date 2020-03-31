@@ -94,3 +94,5 @@ Tests for exceptions can be found in MenuTest class.
 ###Phase 4: Task 3
 allMenus, which is the list of all the menu items was a part of DailyPlan, which is not quite relevant to the class.
 - Made new class AllMenus, and kept DailyPlan everything directly related to the daily meal plan.
+getTotalCost and getTotalCalories are basically doing the same thing but one with cost and one with calories. 
+- Refactored the method out of it???????
