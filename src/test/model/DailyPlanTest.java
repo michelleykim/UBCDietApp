@@ -22,9 +22,18 @@ public class DailyPlanTest {
     }
 
     @Test
-    void testAddMenuException() {
+    void testAddMenuException1() {
         try {
             plan.addMenu("apple", -120, 1.75, true);
+        } catch (Exception e) {
+            System.out.println(e.getMessage());
+        }
+    }
+
+    @Test
+    void testAddMenuException2() {
+        try {
+            plan.addMenu("apple", 120, -1.75, true);
         } catch (Exception e) {
             System.out.println(e.getMessage());
         }

@@ -15,4 +15,5 @@ public class AllMenusTest {
             fail("This exception should not have been thrown.");
         }
     }
+    
 }
