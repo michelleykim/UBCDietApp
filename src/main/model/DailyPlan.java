@@ -18,6 +18,7 @@ public class DailyPlan {
     // MODIFIES: this
     // EFFECTS: generate a recommended daily plan based on user desired calories and budget
     public static void generateMealPlan(int totalCalories, double totalBudget, boolean vegetarian) {
+        // AllMenus contains both dietary and non-dietary restriction menus.
         new AllMenus();
 
         if (vegetarian) {
