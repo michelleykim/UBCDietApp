@@ -8,7 +8,7 @@ import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
 // Represents a window to automatically generate daily plan
-public class GeneratePlan {
+public class GeneratePlan extends GuiWindow {
     protected static JFrame frame;
     private JButton generateUsingAccountInfoButton;
     private JPanel generatePanel;
@@ -18,13 +18,9 @@ public class GeneratePlan {
     // EFFECTS: set up a window where users can choose to either generate daily plan
     //          using account information, or new information.
     public GeneratePlan() {
-        frame = new JFrame("Project_k3x2b");
-    //Create and set up the window.
-        frame.setContentPane(generatePanel);
-        frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-    //Display the window.
-        frame.pack();
-        frame.setVisible(true);
+        super(frame);
+        createWindow(generatePanel);
+        displayWindow();
 
         initiateScratchButton();
         initiateAccountButton();
@@ -37,7 +33,7 @@ public class GeneratePlan {
             @Override
             public void actionPerformed(ActionEvent e) {
                 new GenerateIntermidStep();
-                frame.setVisible(false);
+                invisibleWindow();
             }
         });
     }
@@ -54,7 +50,7 @@ public class GeneratePlan {
                         Account.getDesiredCalories(), Account.getDesiredBudget(), Account.getVegetarian());
 
                 new DailyMealPlan();
-                frame.setVisible(false);
+                invisibleWindow();
             }
         });
     }
@@ -65,7 +61,7 @@ public class GeneratePlan {
             @Override
             public void actionPerformed(ActionEvent e) {
                 new App();
-                frame.setVisible(false);
+                invisibleWindow();
             }
         });
     }

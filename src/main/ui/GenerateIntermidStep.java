@@ -11,7 +11,7 @@ import static java.lang.Double.parseDouble;
 import static java.lang.Integer.parseInt;
 
 // Represents a window where user can input the desired information to generate meal plan with
-public class GenerateIntermidStep {
+public class GenerateIntermidStep extends GuiWindow {
     protected static JFrame frame;
     private JTextField caloriesTextField;
     private JTextField budgetTextField;
@@ -23,13 +23,9 @@ public class GenerateIntermidStep {
     // EFFECTS: set up a window where user can type
     //          desired calories, budget, dietary restriction to generate meal plan with
     public GenerateIntermidStep() {
-        frame = new JFrame("Project_k3x2b");
-        //Create and set up the window.
-        frame.setContentPane(generateIntermediatePanel);
-        frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-        //Display the window.
-        frame.pack();
-        frame.setVisible(true);
+        super(frame);
+        createWindow(generateIntermediatePanel);
+        displayWindow();
 
         initiateDoneButton();
         initiateBackButton();
@@ -49,7 +45,7 @@ public class GenerateIntermidStep {
                         parseBoolean(veggieTextField.getText()));
 
                 new DailyMealPlan();
-                frame.setVisible(false);
+                invisibleWindow();
             }
         });
     }
@@ -60,7 +56,7 @@ public class GenerateIntermidStep {
             @Override
             public void actionPerformed(ActionEvent e) {
                 new GeneratePlan();
-                frame.setVisible(false);
+                invisibleWindow();
             }
         });
     }

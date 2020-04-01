@@ -13,7 +13,7 @@ import java.util.List;
 import static com.sun.javafx.fxml.expression.Expression.add;
 
 // Represents a window that shows the current account information.
-public class ViewAccount {
+public class ViewAccount extends GuiWindow {
     private static final String ACCOUNTS_FILE = "./data/accounts.txt";
     protected static JFrame frame;
     public JPanel accountPanel;
@@ -26,18 +26,14 @@ public class ViewAccount {
 
     // EFFECTS: set up a window that shows desired calories, budget and dietary restrictions of the account
     public ViewAccount() {
-        //Create and set up the window.
-        frame = new JFrame("Project_k3x2b");
-        frame.setContentPane(accountPanel);
-        frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+        super(frame);
+        createWindow(accountPanel);
 
         calories.setText("Desired Daily Calories Intake: " + Account.getDesiredCalories());
         budget.setText("Daily Budget: " + Account.getDesiredBudget());
         veggie.setText("Dietary Restrictions (Vegetarian): " + Account.getVegetarian());
 
-        //Display the window.
-        frame.pack();
-        frame.setVisible(true);
+        displayWindow();
 
         initiateLoadButton();
         initiateEditButton();
@@ -58,7 +54,7 @@ public class ViewAccount {
                     System.out.println("there is no information saved in the file");
                 }
                 new App();
-                frame.setVisible(false);
+                invisibleWindow();
             }
         });
     }
@@ -69,7 +65,7 @@ public class ViewAccount {
             @Override
             public void actionPerformed(ActionEvent e) {
                 new EditAccount();
-                frame.setVisible(false);
+                invisibleWindow();
             }
         });
     }
@@ -80,7 +76,7 @@ public class ViewAccount {
             @Override
             public void actionPerformed(ActionEvent e) {
                 new App();
-                frame.setVisible(false);
+                invisibleWindow();
             }
         });
     }

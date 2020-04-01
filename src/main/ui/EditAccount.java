@@ -11,7 +11,7 @@ import static java.lang.Double.parseDouble;
 import static java.lang.Integer.parseInt;
 
 // Represents a window that user can edit account information
-public class EditAccount {
+public class EditAccount extends GuiWindow {
     protected static JFrame frame;
     private JTextField caloriesTextField;
     private JTextField budgetTextField;
@@ -22,13 +22,9 @@ public class EditAccount {
 
     // EFFECTS: set up a window where user can edit desired calories, budget and dietary restrictions.
     public EditAccount() {
-        frame = new JFrame("Project_k3x2b");
-        //Create and set up the window.
-        frame.setContentPane(editAccountPanel);
-        frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-        //Display the window.
-        frame.pack();
-        frame.setVisible(true);
+        super(frame);
+        createWindow(editAccountPanel);
+        displayWindow();
 
         initiateDoneButton();
         initiateBackButton();
@@ -47,7 +43,7 @@ public class EditAccount {
                 Account.setVegetarian(parseBoolean(veggieTextField.getText()));
 
                 new ViewAccount();
-                frame.setVisible(false);
+                invisibleWindow();
             }
         });
     }
@@ -58,7 +54,7 @@ public class EditAccount {
             @Override
             public void actionPerformed(ActionEvent e) {
                 new ViewAccount();
-                frame.setVisible(false);
+                invisibleWindow();
             }
         });
     }

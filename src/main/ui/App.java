@@ -14,7 +14,7 @@ import java.io.UnsupportedEncodingException;
 import java.net.MalformedURLException;
 
 // Represents a main (initial) window of the app
-public class App {
+public class App extends GuiWindow {
     private static final String ACCOUNTS_FILE = "./data/accounts.txt";
     protected static JFrame frame;
     private JPanel mainPanel;
@@ -29,17 +29,15 @@ public class App {
     // EFFECTS: set up a window where user can choose to either view account,
     //          generate meal plan, customize meal plan, or save and exit the app
     public App() {
-        //Create and set up the window.
-        frame.setContentPane(mainPanel);
-        frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-        //Display the window.
-        frame.pack();
-        frame.setVisible(true);
+        super(frame);
+        createWindow(mainPanel);
+        displayWindow();
 
         initiateViewButton();
         initiateGenerateButton();
         initiateMakeButton();
         initiateQuitButtons();
+
     }
 
     // EFFECTS: with a clicking sound, goto ViewAccount window.
@@ -49,7 +47,7 @@ public class App {
             public void actionPerformed(ActionEvent e) {
                 playSound();
                 new ViewAccount();
-                frame.setVisible(false);
+                invisibleWindow();
             }
         });
     }
@@ -61,7 +59,7 @@ public class App {
             public void actionPerformed(ActionEvent e) {
                 playSound();
                 new GeneratePlan();
-                frame.setVisible(false);
+                invisibleWindow();
             }
         });
 
@@ -74,7 +72,7 @@ public class App {
             public void actionPerformed(ActionEvent e) {
                 playSound();
                 new MakeOwn();
-                frame.setVisible(false);
+                invisibleWindow();
             }
         });
     }
@@ -96,7 +94,7 @@ public class App {
                 }
                 playSound();
                 new Saved();
-                frame.setVisible(false);
+                invisibleWindow();
             }
         });
     }

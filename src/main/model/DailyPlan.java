@@ -25,14 +25,8 @@ public class DailyPlan {
         if (vegetarian) {
             // get rid of non-dietary restriction menus
             allMenus.removeIf(menu -> !menu.getVegetarian());
-
-            planMenusFromAllMenus(totalCalories, totalBudget);
-        } else {
-            planMenusFromAllMenus(totalCalories, totalBudget);
         }
-    }
 
-    private static void planMenusFromAllMenus(int totalCalories, double totalBudget) {
         for (Menu menu : allMenus) {
             if (menu.getCalories() <= totalCalories && menu.getCost() <= totalBudget) {
                 dailyPlan.add(menu);
@@ -40,6 +34,10 @@ public class DailyPlan {
                 totalBudget = totalBudget - menu.getCost();
             }
         }
+    }
+
+    private static void planMenusFromAllMenus(int totalCalories, double totalBudget) {
+
     }
 
 

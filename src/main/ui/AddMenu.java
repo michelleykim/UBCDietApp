@@ -12,7 +12,7 @@ import static java.lang.Integer.parseInt;
 import static java.lang.Boolean.parseBoolean;
 
 // Represents a window to add the specification of the desired menu
-public class AddMenu {
+public class AddMenu extends GuiWindow {
     protected static JFrame frame;
     private JPanel addMenuPanel;
     private JTextField menuName;
@@ -25,13 +25,9 @@ public class AddMenu {
 
     // EFFECTS: set up a window where the specifics of the menu will be written
     public AddMenu() {
-        frame = new JFrame("Project_k3x2b");
-        //Create and set up the window.
-        frame.setContentPane(addMenuPanel);
-        frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-        //Display the window.
-        frame.pack();
-        frame.setVisible(true);
+        super(frame);
+        createWindow(addMenuPanel);
+        displayWindow();
 
         initiateDoneButton();
         initiateBackButton();
@@ -52,7 +48,7 @@ public class AddMenu {
                         parseBoolean(veggie.getText())
                 );
                 new MakeOwn();
-                frame.setVisible(false);
+                invisibleWindow();
             }
         });
     }
@@ -63,7 +59,7 @@ public class AddMenu {
             @Override
             public void actionPerformed(ActionEvent e) {
                 new MakeOwn();
-                frame.setVisible(false);
+                invisibleWindow();
             }
         });
     }

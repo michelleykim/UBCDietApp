@@ -8,7 +8,7 @@ import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
 // Represents a window with current menus of the meal plan laid out.
-public class DailyMealPlan {
+public class DailyMealPlan extends GuiWindow {
     protected static JFrame frame;
     private JPanel dailyPlanPanel;
     private JButton doneButton;
@@ -19,10 +19,8 @@ public class DailyMealPlan {
 
     // EFFECTS: set up a window with current menus of the meal plan laid out in a JList.
     public DailyMealPlan() {
-        frame = new JFrame("Project_k3x2b");
-        //Create and set up the window.
-        frame.setContentPane(dailyPlanPanel);
-        frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+        super(frame);
+        createWindow(dailyPlanPanel);
 
         listModel = new DefaultListModel();
         for (Menu menu: DailyPlan.dailyPlan) {
@@ -33,9 +31,7 @@ public class DailyMealPlan {
         totalCalories.setText("Total Calories: " + DailyPlan.getTotalCalories());
         totalPrice.setText("Daily Budget: " + DailyPlan.getTotalCost());
 
-        //Display the window.
-        frame.pack();
-        frame.setVisible(true);
+        displayWindow();
 
         initiateDoneButton();
     }
@@ -46,7 +42,7 @@ public class DailyMealPlan {
             @Override
             public void actionPerformed(ActionEvent e) {
                 new App();
-                frame.setVisible(false);
+                invisibleWindow();
             }
         });
     }

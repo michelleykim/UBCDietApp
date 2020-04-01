@@ -8,7 +8,7 @@ import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
 // Represents a window for users to manually make their meal plan
-public class MakeOwn {
+public class MakeOwn extends GuiWindow {
     protected static JFrame frame;
     private JList list1;
     private DefaultListModel listModel;
@@ -20,10 +20,8 @@ public class MakeOwn {
 
     // EFFECTS: set up a window that shows the list of menus currently in the daily plan in a JList
     public MakeOwn() {
-        frame = new JFrame("Project_k3x2b");
-        //Create and set up the window.
-        frame.setContentPane(makeOwnPanel);
-        frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+        super(frame);
+        createWindow(makeOwnPanel);
 
         listModel = new DefaultListModel();
         for (Menu menu: DailyPlan.dailyPlan) {
@@ -31,9 +29,7 @@ public class MakeOwn {
         }
         list1.setModel(listModel);
 
-        //Display the window.
-        frame.pack();
-        frame.setVisible(true);
+        displayWindow();
 
         initiateAddButton();
         initiateDeleteButton();
@@ -47,7 +43,7 @@ public class MakeOwn {
             @Override
             public void actionPerformed(ActionEvent e) {
                 new AddMenu();
-                frame.setVisible(false);
+                invisibleWindow();
             }
         });
     }
@@ -72,7 +68,7 @@ public class MakeOwn {
             @Override
             public void actionPerformed(ActionEvent e) {
                 new DailyMealPlan();
-                frame.setVisible(false);
+                invisibleWindow();
             }
         });
     }
@@ -83,7 +79,7 @@ public class MakeOwn {
             @Override
             public void actionPerformed(ActionEvent e) {
                 new App();
-                frame.setVisible(false);
+                invisibleWindow();
             }
         });
     }
