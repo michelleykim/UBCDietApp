@@ -92,9 +92,10 @@ The thrown exceptions are caught in DailyPlan class addMenu method.
 Tests for exceptions can be found in MenuTest class.
 
 ###Phase 4: Task 3
+Poor cohesion in DailyPlan class-- 
 allMenus, which is the list of all the menu items was a part of DailyPlan, which is not quite relevant to the class.
 - Made new class AllMenus, and kept DailyPlan everything directly related to the daily meal plan.
-Too much coupling in GUI-- 
-the method to set up, display window and making window invisible were repeated in all of my classes in ui package.
+Too much coupling in GUI classes-- 
+the method to set up, display window and making window invisible were repeated in all of the classes in ui package.
 - Made a GuiWindow class with methods to set up, to display, and to make window invisible, 
 and made other classes in ui package extend the GuiWindow class. 
