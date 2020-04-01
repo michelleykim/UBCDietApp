@@ -6,7 +6,7 @@ import static model.AllMenus.allMenus;
 
 //Represents a daily plan. Each Account can have one daily plan at a time.
 public class DailyPlan {
-    public static ArrayList<Menu> dailyPlan = new ArrayList<>();
+    public static ArrayList<Menu> dailyPlan;
     public static int totalCalories;
     public static double totalCost;
 
@@ -21,6 +21,7 @@ public class DailyPlan {
 
         // AllMenus contains both dietary and non-dietary restriction menus.
         new AllMenus();
+        dailyPlan = new ArrayList<>();
 
         if (vegetarian) {
             // get rid of non-dietary restriction menus
