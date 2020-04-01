@@ -55,19 +55,4 @@ public class Reader {
 
         return new Account(desiredCalories, desiredBudget, vegetarian);
     }
-
-    //private static WeeklyPlan parseWeeklyPlan(String stringPlan) {
-    //    WeeklyPlan weeklyPlan = null;
-    //    String[] splits = stringPlan.split(",");
-    //    ArrayList<String> plans = new ArrayList<>(Arrays.asList(splits));
-    //
-    //    for (String plan : plans) {
-    //        ArrayList<DailyPlan> dailyPlan = new ArrayList();
-    //
-    //        if (menu.getName == plan) {
-    //            dailyPlan.add(menu);
-    //        }
-    //    }
-    //    return weeklyPlan;
-    //}
 }

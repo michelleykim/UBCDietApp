@@ -36,10 +36,6 @@ public class DailyPlan {
         }
     }
 
-    private static void planMenusFromAllMenus(int totalCalories, double totalBudget) {
-
-    }
-
 
     // MODIFIES: this
     // EFFECTS: adds a menu to daily plan
