@@ -21,7 +21,7 @@ public class AddMenu extends GuiWindow {
     private JTextField veggie;
     private JButton doneButton;
     private JButton backButton;
-    protected Menu menu;
+
 
     // EFFECTS: set up a window where the specifics of the menu will be written
     public AddMenu() {

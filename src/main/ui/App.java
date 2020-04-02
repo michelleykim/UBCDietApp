@@ -1,6 +1,7 @@
 package ui;
 
 import model.Account;
+import model.DailyPlan;
 import persistence.Writer;
 
 import javax.swing.*;
@@ -113,6 +114,7 @@ public class App extends GuiWindow {
     // Open the app.
     public static void main(String[] args) {
         frame = new JFrame("Project_k3x2b");
+        new DailyPlan();
 
         new App();
     }

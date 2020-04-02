@@ -13,6 +13,7 @@ public class DailyPlan {
     // EFFECTS: constructs an empty daily plan
     public DailyPlan() {
         //construct an empty daily plan
+        dailyPlan = new ArrayList<>();
     }
 
     // MODIFIES: this
